@@ -5,11 +5,21 @@
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { SelectValue, SelectTrigger, Select } from "@/components/ui/select"
+import productData from "@/data/productData";
 
 export function StoreFront() {
   return (
     (<div className="max-w-[600px] mx-auto bg-white">
-      <div className="flex items-center justify-between p-4 border-b">
+      <div className="flex items-center justify-between p-4 border-b"
+      style={{
+        position: "sticky",
+        top: 0,
+        zIndex: 999,
+        
+        backgroundColor:"white"
+      }}
+      
+      >
         <MenuIcon className="text-black" />
         <Input className="flex-1 mx-2" placeholder="Search This Store" type="search" />
         <HeartIcon className="text-black" />
@@ -22,7 +32,7 @@ export function StoreFront() {
               alt="SHEIN Kids SUNSHNE"
               className="h-12 w-12"
               height="50"
-              src="/placeholder.svg"
+              src="https://img.ltwebstatic.com/images3_srm/2023/12/15/27/1702628520a24f30493940c377056687623a8beb3e.webp"
               style={{
                 aspectRatio: "50/50",
                 objectFit: "cover",
@@ -50,48 +60,50 @@ export function StoreFront() {
         </div>
       </div>
       <div className="grid grid-cols-4 gap-2 p-4">
-        <img
-          alt="Clothing"
-          className="w-full"
-          height="100"
-          src="/placeholder.svg"
-          style={{
-            aspectRatio: "100/100",
+        {[
+          {
+            "daId": "1991",
+            "imgSrc": "https://img.ltwebstatic.com/images3_abc/2023/03/01/1677602132e97a425f6e897bfe88a159b6a978733e_thumbnail_100x.png",
+            "cateSrc": "Clothing"
+          },
+          {
+            "daId": "2058",
+            "imgSrc": "https://img.ltwebstatic.com/images3_abc/2023/07/26/1690355580e4e5ed15aebc2c854fd7c39afc30338e_thumbnail_100x.png",
+            "cateSrc": "Clothing"
+          },
+          {
+            "daId": "2059",
+            "imgSrc": "https://img.ltwebstatic.com/images3_abc/2022/01/15/16422306993677e299457d9b806e6ee7ae35dd6997_thumbnail_100x.png",
+            "cateSrc": "Clothing"
+          },
+          {
+            "daId": "1990",
+            "imgSrc": "https://img.ltwebstatic.com/images3_abc/2024/01/19/fd/1705673434c5049d43a1aea083bb260e51b213a483_thumbnail_100x.png",
+            "cateSrc": "Clothing"
+          }
+        ].map((cate) => (
+          <div className="p-2"
+            key={cate.daId}
+          >
+            <img
+              alt={cate.cateSrc}
+              className="w-full"
+              height="46px"
+              src={cate.imgSrc}
+              style={{
+                aspectRatio: "100/100",
+                
             objectFit: "cover",
-          }}
-          width="100" />
-        <img
-          alt="Clothing"
-          className="w-full"
-          height="100"
-          src="/placeholder.svg"
-          style={{
-            aspectRatio: "100/100",
-            objectFit: "cover",
-          }}
-          width="100" />
-        <img
-          alt="Clothing"
-          className="w-full"
-          height="100"
-          src="/placeholder.svg"
-          style={{
-            aspectRatio: "100/100",
-            objectFit: "cover",
-          }}
-          width="100" />
-        <img
-          alt="Clothing"
-          className="w-full"
-          height="100"
-          src="/placeholder.svg"
-          style={{
-            aspectRatio: "100/100",
-            objectFit: "cover",
-          }}
-          width="100" />
+            width: "52px"
+              }}
+              />
+
+          </div>
+        ))}
+
+
       </div>
-      <div className="flex items-center justify-between px-4 py-2 bg-gray-100">
+      <div className="flex items-center justify-between px-4 py-2 bg-gray-100 overflow-x-auto">
         <Button className="text-black" variant="ghost">
           Recommended
         </Button>
@@ -127,34 +139,44 @@ export function StoreFront() {
         <SettingsIcon className="text-black" />
       </div>
       <div className="grid grid-cols-2 gap-4 p-4">
-        <div>
-          <img
-            alt="SHEIN Kids SUNSHNE Two-piece Outfit"
+        {productData.map((product)=>(
+          <div
+          key={product.key}
+         
+          >
+         <div className=""
+          style={{
+            height:'250px'
+          }}
+         
+         >
+         <img
+            alt={product.goods_name}
             className="w-full"
-            height="200"
-            src="/placeholder.svg"
+            
+            src={product.goods_img}
             style={{
               aspectRatio: "200/200",
               objectFit: "cover",
+              height:"100%",
+              
             }}
-            width="200" />
-          <div className="text-center">SHEIN Kids SUNSHNE Two-piece Outfit</div>
+             />
+
+         </div>
+          <div className="text-center"
+          
+          style={{
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            whiteSpace: "nowrap",
+          }}
+          >{product.goods_name}</div>
           <div className="text-center text-sm text-gray-500">60+ sold recently</div>
         </div>
-        <div>
-          <img
-            alt="SHEIN Kids SUNSHNE Two-piece Outfit"
-            className="w-full"
-            height="200"
-            src="/placeholder.svg"
-            style={{
-              aspectRatio: "200/200",
-              objectFit: "cover",
-            }}
-            width="200" />
-          <div className="text-center">SHEIN Kids SUNSHNE Two-piece Outfit</div>
-          <div className="text-center text-sm text-gray-500">60+ sold recently</div>
-        </div>
+        ))}
+        
+       
       </div>
     </div>)
   );

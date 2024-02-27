@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { SelectValue, SelectTrigger, Select } from "@/components/ui/select"
 import productData from "@/data/productData";
+import Link from "next/link";
 
 export function StoreFront() {
   return (
@@ -150,6 +151,11 @@ export function StoreFront() {
           }}
          
          >
+          <Link
+          href={`${product.goods_url_name.split(' ').map((wrd)=>wrd).join('-')}-p-${product.key}`}
+
+          
+          >
          <img
             alt={product.goods_name}
             className="w-full"
@@ -162,6 +168,7 @@ export function StoreFront() {
               
             }}
              />
+             </Link>
 
          </div>
           <div className="text-center"

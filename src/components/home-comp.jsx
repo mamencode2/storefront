@@ -5,6 +5,7 @@ import { SelectValue, SelectTrigger, SelectItem, SelectContent, Select } from "@
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Swiper,Image,Button as AntButton } from "antd-mobile/es/components/swiper/swiper";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "./ui/carousel";
 
 export function HomeComp({product}) {
   console.log(product.detail_image)
@@ -29,13 +30,30 @@ export function HomeComp({product}) {
           <ShoppingCartIcon className="text-black" />
         </div>
       </div>
+      <Carousel className="relative">
+        <CarouselContent>
+          {Array.from(Array(5)).map((_,i)=>(
+            <CarouselItem
+            key={i}
+            >
+            <img
+              alt="Yellow Spaghetti Strap Tank Top And Floral Printed Denim Shorts"
+              className="w-full max-h-[45vh]"
+            
+              src={product.goods_img}
+              style={{
+                aspectRatio: "300/500",
+                objectFit: "cover",
+              }}
+              width="300" />
+          </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel>
       <div className="relative">
-        <div >
-          <img src={product.goods_img} alt="" 
-          
-          
-          />
-        </div>
+        
 
         <div
           className="absolute bottom-0 left-0 right-0 flex justify-center bg-white bg-opacity-75 py-1">

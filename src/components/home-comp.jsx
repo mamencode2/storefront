@@ -6,7 +6,7 @@ import { SelectValue, SelectTrigger, SelectItem, SelectContent, Select } from "@
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 
-export function HomeComp() {
+export function HomeComp({product}) {
   return (
     (<div className="bg-white">
       <div className="flex items-center justify-between px-4 py-2">

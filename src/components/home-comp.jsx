@@ -9,55 +9,55 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import Link from "next/link";
 import { AddToCart } from "./add-to-cart";
 
-export function HomeComp({product}) {
-  console.log(product.detail_image)
+export function HomeComp({ product }) {
+
   console.log(product)
-  
+
   return (
-    <div className="bg-white">
+    <div className="bg-white position-relative height-100vh">
       <div className="flex items-center justify-between px-4 py-2"
-      
-      style={{
-        position: "sticky",
-        top: 0,
-        zIndex: 999,
-        
-        backgroundColor:"white"
-      }}
+
+        style={{
+          position: "sticky",
+          top: 0,
+          zIndex: 999,
+
+          backgroundColor: "white"
+        }}
       >
         <ArrowLeftIcon className="text-black" />
         <div className="flex-1 text-center font-bold text-black">SHEIN</div>
         <div className="flex space-x-2">
           <SearchIcon className="text-black" />
           <Link href='/cart'>
-          <ShoppingCartIcon className="text-black" />
+            <ShoppingCartIcon className="text-black" />
           </Link>
         </div>
       </div>
       <Carousel className="relative">
         <CarouselContent>
-          {Array.from(Array(5)).map((_,i)=>(
+          {Array.from(Array(5)).map((_, i) => (
             <CarouselItem
-            key={i}
+              key={i}
             >
-            <img
-              alt="Yellow Spaghetti Strap Tank Top And Floral Printed Denim Shorts"
-              className="w-full max-h-[45vh]"
-            
-              src={product.goods_img}
-              style={{
-                aspectRatio: "300/500",
-                objectFit: "cover",
-              }}
-              width="300" />
-          </CarouselItem>
+              <img
+                alt="Yellow Spaghetti Strap Tank Top And Floral Printed Denim Shorts"
+                className="w-full max-h-[45vh]"
+
+                src={product.goods_img}
+                style={{
+                  aspectRatio: "300/500",
+                  objectFit: "cover",
+                }}
+                width="300" />
+            </CarouselItem>
           ))}
         </CarouselContent>
         <CarouselPrevious />
         <CarouselNext />
       </Carousel>
       <div className="relative">
-        
+
 
         <div
           className="absolute bottom-0 left-0 right-0 flex justify-center bg-white bg-opacity-75 py-1">
@@ -71,7 +71,7 @@ export function HomeComp({product}) {
               {product.salePrice.amountWithSymbol}
             </span>
             <span className="ml-2 text-sm line-through text-gray-500">
-            {product.retailPrice.amountWithSymbol}
+              {product.retailPrice.amountWithSymbol}
 
             </span>
             <span className="ml-1 rounded bg-red-200 px-1 text-xs text-red-600">-14%</span>
@@ -83,13 +83,13 @@ export function HomeComp({product}) {
         </div>
         <div className="mt-1">
           <h1 className="text-lg font-bold text-black"
-          style={{
-            overflow: "hidden",
-            textOverflow: "ellipsis",
-            whiteSpace: "nowrap",
-          }}
+            style={{
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+              whiteSpace: "nowrap",
+            }}
           >
-           {product.goods_name }
+            {product.goods_name}
           </h1>
         </div>
         <div className="mt-4">
@@ -123,9 +123,18 @@ export function HomeComp({product}) {
             <span className="text-sm text-gray-500">Estimated to be delivered on 03/09/2024 -</span>
           </div>
         </div>
-        <div >
-          <AddToCart/>
-        </div>
+
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          bottom: 0,
+          right: 0,
+          width: "100%",
+          padding: '5px 12px'
+        }}
+      >
+        <AddToCart />
       </div>
     </div>
   );

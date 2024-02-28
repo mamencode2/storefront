@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "./ui/carousel";
 import Link from "next/link";
+import { AddToCart } from "./add-to-cart";
 
 export function HomeComp({product}) {
   console.log(product.detail_image)
@@ -122,11 +123,8 @@ export function HomeComp({product}) {
             <span className="text-sm text-gray-500">Estimated to be delivered on 03/09/2024 -</span>
           </div>
         </div>
-        <div className="mt-6 flex justify-between">
-          <Button className="flex-1" variant="ghost">
-            ❤
-          </Button>
-          <Button className="flex-1 bg-black text-white">ADD TO CART</Button>
+        <div >
+          <AddToCart/>
         </div>
       </div>
     </div>

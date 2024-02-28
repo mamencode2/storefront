@@ -1,4 +1,4 @@
-export default productData= [
+export default [
     {
         "goods_id": 30265255,
         "mall_code": "1",

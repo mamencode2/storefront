@@ -3,40 +3,42 @@
  * @see https://v0.dev/t/v5p6COxcwE6
  */
 import { Input } from "@/components/ui/input"
+import { useState } from "react";
 
 export function FilterSearch() {
+  const [sv, setSv]= useState('')
   return (
     (<div className="relative w-[300px]">
       <Input
         className="pl-4 pr-10 py-2 w-full rounded-t-md border border-gray-200 border-b-0 dark:border-gray-800"
-        onChange={undefined}
+        onChange={(e)=>setSv(e.target.value)}
         placeholder="Search"
-        value={undefined} />
+        value={sv} />
       <div
         className="absolute top-full left-0 right-0 mt-px rounded-b-md border border-gray-200 bg-white transition-opacity duration-300 dark:border-gray-800">
         <ul className="max-h-60 overflow-auto">
-          <li className="px-4 py-2 hover:bg-gray-100" onClick={undefined}>
+          <li className="px-4 py-2 hover:bg-gray-100" onClick={()=> setSv('catssac')}>
             catssac
           </li>
-          <li className="px-4 py-2 hover:bg-gray-100" onClick={undefined}>
+          <li className="px-4 py-2 hover:bg-gray-100" onClick={()=> setSv('catssac')}>
             cat男装
           </li>
-          <li className="px-4 py-2 hover:bg-gray-100" onClick={undefined}>
+          <li className="px-4 py-2 hover:bg-gray-100" onClick={()=> setSv('catssac')}>
             cat官方旗舰店
           </li>
-          <li className="px-4 py-2 hover:bg-gray-100" onClick={undefined}>
+          <li className="px-4 py-2 hover:bg-gray-100" onClick={()=> setSv('catssac')}>
             catyears猫年
           </li>
-          <li className="px-4 py-2 hover:bg-gray-100" onClick={undefined}>
+          <li className="px-4 py-2 hover:bg-gray-100" onClick={()=> setSv('catssac')}>
             cat马丁靴
           </li>
-          <li className="px-4 py-2 hover:bg-gray-100" onClick={undefined}>
+          <li className="px-4 py-2 hover:bg-gray-100" onClick={()=> setSv('catssac')}>
             cat男鞋
           </li>
-          <li className="px-4 py-2 hover:bg-gray-100" onClick={undefined}>
+          <li className="px-4 py-2 hover:bg-gray-100" onClick={()=> setSv('catssac')}>
             cat马丁靴男
           </li>
-          <li className="px-4 py-2 hover:bg-gray-100" onClick={undefined}>
+          <li className="px-4 py-2 hover:bg-gray-100" onClick={()=> setSv('catssac')}>
             cat驾照服
           </li>
         </ul>

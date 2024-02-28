@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Swiper,Image,Button as AntButton } from "antd-mobile/es/components/swiper/swiper";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "./ui/carousel";
+import Link from "next/link";
 
 export function HomeComp({product}) {
   console.log(product.detail_image)
@@ -27,7 +28,9 @@ export function HomeComp({product}) {
         <div className="flex-1 text-center font-bold text-black">SHEIN</div>
         <div className="flex space-x-2">
           <SearchIcon className="text-black" />
+          <Link href='/cart'>
           <ShoppingCartIcon className="text-black" />
+          </Link>
         </div>
       </div>
       <Carousel className="relative">

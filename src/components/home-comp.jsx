@@ -4,7 +4,7 @@
 import { SelectValue, SelectTrigger, SelectItem, SelectContent, Select } from "@/components/ui/select"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Swiper,Image,Button as AntButton } from "antd-mobile/es/components/swiper/swiper";
+
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "./ui/carousel";
 import Link from "next/link";
 
@@ -134,13 +134,7 @@ export function HomeComp({product}) {
 }
 
 
-function ImageAnt(props){
-  return(
-    (<div>
-      <AntButton>Hello wirld</AntButton>
-    </div>)
-  )
-}
+
 
 function ArrowLeftIcon(props) {
   return (

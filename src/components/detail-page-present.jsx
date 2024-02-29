@@ -1,6 +1,6 @@
 'use client'
 //import { Swiper ,Image, Skeleton} from 'antd-mobile/es/components/swiper/swiper';
-import { Image, Skeleton, SwipeAction, Swiper } from 'antd-mobile';
+import { Image, ImageViewer, Skeleton, SwipeAction, Swiper } from 'antd-mobile';
 import Link from 'next/link';
 import React, { useState } from 'react'
 
@@ -9,27 +9,33 @@ export default function DetailPagePresent({ product }) {
         <div>
             <DetailHeader />
             <HeroBanner
-product={product}
+                product={product}
             />
         </div>
     )
 }
 
 function HeroBanner({ product }) {
-    const [currentIndex, setCurrentIndex] = useState('1');
-    let items = Array.from(Array(5)).map((_, i) => {
-        return {
-            index: `${i + 1}`,
-            picSrc: product.goods_img
-        }
-    }).map((item) => (
-        <Swiper.Item key={item.index}>
+    console.log(product)
+    const [currentIndex, setCurrentIndex] = useState(0);
+    let dImgs = [...product.detail_image, product.goods_img]
+    const [isVisible, setVisible] = useState(false);
+    //console.log(dImgs)
+
+    let items = dImgs.map((item, index) => (
+        <Swiper.Item key={index}
+            onClick={() => {
+                setVisible(true);
+                setCurrentIndex(index);
+            }}
+
+        >
             <Image
                 style={{
                     marginRight: "8px",
                 }}
                 src={
-                    item.picSrc
+                    item
                     // "data:image/jpeg;base64, " + arrayBufferToBase64(photo.bufImg.data)
                 }
                 placeholder={
@@ -43,17 +49,37 @@ function HeroBanner({ product }) {
             />
         </Swiper.Item>
     ))
+
+    function MultiImgElemets() {
+        return (
+            <ImageViewer.Multi
+                visible={isVisible}
+                images={dImgs}
+                onClose={() => {
+                    setVisible(false);
+                }}
+                defaultIndex={currentIndex}
+                onIndexChange={(index) => {
+                    setCurrentIndex(index);
+                }}
+            />
+        )
+    }
     return (
-        <Swiper
-        slideSize={68}
-        onIndexChange={(index) => {
-          setCurrentIndex(index);
-        }}
-        defaultIndex={currentIndex}
-        
-        >
-{items}
-        </Swiper>
+        <>
+            {isVisible ? <MultiImgElemets /> : (
+                <Swiper
+                    slideSize={68}
+                    onIndexChange={(index) => {
+                        setCurrentIndex(index);
+                    }}
+                    defaultIndex={currentIndex}
+
+                >
+                    {items}
+                </Swiper>
+            )}
+        </>
     )
 }
 function DetailHeader(props) {

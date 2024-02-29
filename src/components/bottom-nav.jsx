@@ -35,6 +35,7 @@ let bottomNavs = [
 
 export function BottomNav() {
   const pathname = usePathname()
+  console.log(pathname)
   return (
     (<footer className="fixed inset-x-0 bottom-0 flex flex-1 flex-row " style={{
       margin: "0 auto",

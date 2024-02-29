@@ -13,7 +13,7 @@ export default function App({ children }) {
     }, [dispatch]);
     return (
         <div>
-            <BottomNav />
+           
             {children}
         </div>
     )

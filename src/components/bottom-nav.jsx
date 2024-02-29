@@ -36,10 +36,12 @@ let bottomNavs = [
 export function BottomNav() {
   const pathname = usePathname()
   return (
-    (<footer className="fixed inset-x-0 bottom-0 flex flex-1 flex-row max-w-[600px] " style={{
+    (<footer className="fixed inset-x-0 bottom-0 flex flex-1 flex-row " style={{
       margin: "0 auto",
       borderTop: "1px solid gray",
-      backgroundColor: "white"
+      backgroundColor: "white",
+      maxWidth:"600px",
+      width:"100%"
     }}>
       {bottomNavs.map((link) => {
         const isActive = pathname.startsWith(link.href)

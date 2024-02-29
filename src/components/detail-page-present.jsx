@@ -4,6 +4,7 @@ import { currencyConvert } from '@/utils/helper';
 import { Image, ImageViewer, Skeleton, SwipeAction, Swiper } from 'antd-mobile';
 import Link from 'next/link';
 import React, { useState } from 'react'
+import AddToCartFrm from './AddToCartFrm';
 
 export default function DetailPagePresent({ product }) {
     return (
@@ -15,50 +16,56 @@ export default function DetailPagePresent({ product }) {
             <BottomInfo
                 product={product}
             />
+            <AddToCartFrm
+
+                product={product}
+            />
         </div>
     )
 }
 
-function BottomInfo({product}){
+function BottomInfo({ product }) {
     let salePrice = currencyConvert(Number(product.salePrice.amount))
-    return(
+    return (
         <div
-      className=""
-      style={{
-        marginTop: "8.3px",
-        padding: "0 ",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-      }}
-    >
-<div
-        className=""
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-        }}
-      >
-        <span
-          style={{
-            fontSize: "20px",
-            fontWeight: "400",
-            color: Number(product.salePrice.amount) < Number(product.retailPrice.amount) ? "#fa6338" :'',
-          }}
-        >
-            {salePrice.curAmt}
-        </span>
-        <span
+            className=""
             style={{
-              fontSize: "12px",
+                marginTop: "8.3px",
+                padding: "0 12px",
+
             }}
-          >
-            ብር
-          </span>
-      </div>
-        <h3>Bottom Info</h3>
-    </div>
+        >
+            <div
+                className=""
+                style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                }}
+            >
+                <div className="">
+                    <span
+                        style={{
+                            fontSize: "20px",
+                            fontWeight: "400",
+                            color: Number(product.salePrice.amount) < Number(product.retailPrice.amount) ? "#fa6338" : '',
+                        }}
+                    >
+                        {salePrice.curAmt}
+                    </span>
+                    {" "}
+                    <span
+                        style={{
+                            fontSize: "12px",
+                        }}
+                    >
+                        ብር
+                    </span>
+                </div>
+                <div className="" />
+            </div>
+            <h3>Bottom Info</h3>
+        </div>
     )
 }
 function HeroBanner({ product }) {

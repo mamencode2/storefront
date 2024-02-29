@@ -47,13 +47,15 @@ export function BottomNav() {
       width:"100%"
     }}>
       {bottomNavs.map((link) => {
-        const isActive = pathname.startsWith(link.href)
+        //const isActive = pathname.startsWith(link.href)
+        //let activePath = pathname ==="/" || pathname.startsWith('/home')?'/': 
+        const activePath = pathname === '/' || pathname === '/home' ? '/' : link.href;
         return (
           <Link
             className="flex flex-1 flex-col items-center justify-center py-2 text-sm text-gray-500 dark:text-gray-400"
             style={{
-              color: isActive? "black":"",
-              fontWeight: isActive?"bold":""
+              color: activePath === link.href? "black":"",
+              fontWeight: activePath === link.href?"bold":""
             }}
             href={link.href}>
             {link.icon}

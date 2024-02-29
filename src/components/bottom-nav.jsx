@@ -34,10 +34,11 @@ let bottomNavs = [
     icon: <UserIcon className="h-6 w-6" />
   }
 ]
-
 export function BottomNav() {
   const pathname = usePathname()
   console.log(pathname)
+const activePath = pathname === '/' || pathname === '/home' ? '/' : pathname;
+
   return (
     (<footer className="fixed inset-x-0 bottom-0 flex flex-1 flex-row " style={{
       margin: "0 auto",
@@ -49,7 +50,7 @@ export function BottomNav() {
       {bottomNavs.map((link) => {
         //const isActive = pathname.startsWith(link.href)
         //let activePath = pathname ==="/" || pathname.startsWith('/home')?'/': 
-        const activePath = pathname === '/' || pathname === '/home' ? '/' : link.href;
+       
         return (
           <Link
             className="flex flex-1 flex-col items-center justify-center py-2 text-sm text-gray-500 dark:text-gray-400"

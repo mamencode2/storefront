@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "./ui/carousel";
 import Link from "next/link";
 import { AddToCart } from "./add-to-cart";
+import { useState } from "react";
 
 export function HomeComp({ product }) {
 
@@ -34,30 +35,11 @@ export function HomeComp({ product }) {
           </Link>
         </div>
       </div>
-      <Carousel className="relative">
-        <CarouselContent>
-          {Array.from(Array(5)).map((_, i) => (
-            <CarouselItem
-              key={i}
-            >
-              <img
-                alt="Yellow Spaghetti Strap Tank Top And Floral Printed Denim Shorts"
-                className="w-full max-h-[45vh]"
-
-                src={product.goods_img}
-                style={{
-                  aspectRatio: "300/500",
-                  objectFit: "cover",
-                }}
-                width="300" />
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
-      </Carousel>
+      
       <div className="relative">
-
+<ComponentCarousel
+product={product}
+/>
 
         <div
           className="absolute bottom-0 left-0 right-0 flex justify-center bg-white bg-opacity-75 py-1">
@@ -245,4 +227,39 @@ function TruckIcon(props) {
       <circle cx="17" cy="18" r="2" />
     </svg>)
   );
+}
+
+function ComponentCarousel({product}){
+  const [currentIndex,setCurrentIndex]= useState(0)
+  function handleScr(index){
+    console.log(index)
+  }
+  return(
+    <Carousel className="relative">
+        <CarouselContent>
+          {Array.from(Array(5)).map((_, i) => (
+            <CarouselItem
+              key={i}
+              
+            >
+             {/* <span className="text-xs text-black">
+              {i+1} of 5
+             </span> */}
+              <img
+                alt="Yellow Spaghetti Strap Tank Top And Floral Printed Denim Shorts"
+                className="w-full max-h-[45vh]"
+
+                src={product.goods_img}
+                style={{
+                  aspectRatio: "300/500",
+                  objectFit: "cover",
+                }}
+                width="300" />
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        {/* <CarouselPrevious /> */}
+        {/* <CarouselNext /> */}
+      </Carousel>
+  )
 }

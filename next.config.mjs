@@ -2,7 +2,8 @@
 const nextConfig = {
     eslint:{
         ignoreDuringBuilds:true
-    }
+    },
+    transpilePackages: ['antd-mobile']
 };
 
 export default nextConfig;

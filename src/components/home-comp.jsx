@@ -3,7 +3,7 @@
 
 import { SelectValue, SelectTrigger, SelectItem, SelectContent, Select } from "@/components/ui/select"
 import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
+import { Button, Image, Swiper } from "antd-mobile"
 
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "./ui/carousel";
 import Link from "next/link";
@@ -35,11 +35,11 @@ export function HomeComp({ product }) {
           </Link>
         </div>
       </div>
-      
+
       <div className="relative">
-<ComponentCarousel
-product={product}
-/>
+        <ComponentCarousel
+          product={product}
+        />
 
         <div
           className="absolute bottom-0 left-0 right-0 flex justify-center bg-white bg-opacity-75 py-1">
@@ -229,37 +229,54 @@ function TruckIcon(props) {
   );
 }
 
-function ComponentCarousel({product}){
-  const [currentIndex,setCurrentIndex]= useState(0)
-  function handleScr(index){
-    console.log(index)
-  }
-  return(
-    <Carousel className="relative">
-        <CarouselContent>
-          {Array.from(Array(5)).map((_, i) => (
-            <CarouselItem
-              key={i}
-              
-            >
-             {/* <span className="text-xs text-black">
-              {i+1} of 5
-             </span> */}
-              <img
-                alt="Yellow Spaghetti Strap Tank Top And Floral Printed Denim Shorts"
-                className="w-full max-h-[45vh]"
+function ComponentCarousel({ product }) {
+  const [currentIndex, setCurrentIndex] = useState(0)
+  let carsoulswiper = Array.from(Array(7)).map((_, i) => (
+    <Swiper.Item key={i}>
+      <Image
+        src={product.goods_img}
+      />
+    </Swiper.Item>
+  ))
+  return (
+    
 
-                src={product.goods_img}
-                style={{
-                  aspectRatio: "300/500",
-                  objectFit: "cover",
-                }}
-                width="300" />
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        {/* <CarouselPrevious /> */}
-        {/* <CarouselNext /> */}
-      </Carousel>
+      <Swiper
+       slideSize={68}
+       onIndexChange={(index) => {
+         setCurrentIndex(index);
+       }}
+       defaultIndex={currentIndex}
+      
+      >
+        {carsoulswiper}
+      </Swiper>
+    
   )
 }
+/*
+<Carousel className="relative">
+<CarouselContent>
+  {Array.from(Array(5)).map((_, i) => (
+    <CarouselItem
+      key={i}
+    >
+
+     
+      <img
+        alt="Yellow Spaghetti Strap Tank Top And Floral Printed Denim Shorts"
+        className="w-full max-h-[45vh]"
+
+        src={product.goods_img}
+        style={{
+          aspectRatio: "300/500",
+          objectFit: "cover",
+        }}
+        width="300" />
+    </CarouselItem>
+  ))}
+</CarouselContent>
+
+</Carousel>
+
+*/

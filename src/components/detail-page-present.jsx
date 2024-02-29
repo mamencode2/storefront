@@ -1,4 +1,5 @@
 'use client'
+import { currencyConvert } from '@/utils/helper';
 //import { Swiper ,Image, Skeleton} from 'antd-mobile/es/components/swiper/swiper';
 import { Image, ImageViewer, Skeleton, SwipeAction, Swiper } from 'antd-mobile';
 import Link from 'next/link';
@@ -11,10 +12,55 @@ export default function DetailPagePresent({ product }) {
             <HeroBanner
                 product={product}
             />
+            <BottomInfo
+                product={product}
+            />
         </div>
     )
 }
 
+function BottomInfo({product}){
+    let salePrice = currencyConvert(Number(product.salePrice.amount))
+    return(
+        <div
+      className=""
+      style={{
+        marginTop: "8.3px",
+        padding: "0 ",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+      }}
+    >
+<div
+        className=""
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
+        <span
+          style={{
+            fontSize: "20px",
+            fontWeight: "400",
+            color: Number(product.salePrice.amount) < Number(product.retailPrice.amount) ? "#fa6338" :'',
+          }}
+        >
+            {salePrice.curAmt}
+        </span>
+        <span
+            style={{
+              fontSize: "12px",
+            }}
+          >
+            ብር
+          </span>
+      </div>
+        <h3>Bottom Info</h3>
+    </div>
+    )
+}
 function HeroBanner({ product }) {
     console.log(product)
     const [currentIndex, setCurrentIndex] = useState(0);

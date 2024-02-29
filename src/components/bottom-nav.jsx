@@ -3,14 +3,61 @@
  * @see https://v0.dev/t/9P5JD7ifyiu
  */
 import Link from "next/link"
+import { usePathname } from "next/navigation";
+
+let bottomNavs = [
+  {
+    label: "Home",
+    href: "/",
+    icon: <HomeIcon className="h-6 w-6" />
+  },
+  {
+    label: "Categories",
+    href: "/category",
+    icon: <LayoutGridIcon className="h-6 w-6" />
+  },
+  {
+    label: "New",
+    href: "/new",
+    icon: <PenToolIcon className="h-6 w-6" />
+  },
+  {
+    label: "Cart",
+    href: "/cart",
+    icon: <ShoppingBagIcon className="h-6 w-6" />
+  },
+  {
+    label: "Profile",
+    href: "/me",
+    icon: <UserIcon className="h-6 w-6" />
+  }
+]
 
 export function BottomNav() {
+  const pathname = usePathname()
   return (
     (<footer className="fixed inset-x-0 bottom-0 flex flex-1 flex-row max-w-[600px] " style={{
-      margin:"0 auto",
-      borderTop:"1px solid gray",
-      backgroundColor:"white"
+      margin: "0 auto",
+      borderTop: "1px solid gray",
+      backgroundColor: "white"
     }}>
+      {bottomNavs.map((link) => {
+        const isActive = pathname.startsWith(link.href)
+        return (
+          <Link
+            className="flex flex-1 flex-col items-center justify-center py-2 text-sm text-gray-500 dark:text-gray-400"
+            style={{
+              color: isActive? "black":"",
+              fontWeight: isActive?"bold":""
+            }}
+            href={link.href}>
+            {link.icon}
+            {link.label}
+          </Link>
+        )
+      })}
+
+      {/* 
       <Link
         className="flex flex-1 flex-col items-center justify-center py-2 text-sm text-gray-500 dark:text-gray-400"
         href="#">
@@ -41,6 +88,8 @@ export function BottomNav() {
         <UserIcon className="h-6 w-6" />
         Profile
       </Link>
+     
+     */}
     </footer>)
   );
 }

@@ -6,7 +6,11 @@ import Link from "next/link"
 
 export function BottomNav() {
   return (
-    (<footer className="fixed inset-x-0 bottom-0 flex flex-1 flex-row max-w-[600px]">
+    (<footer className="fixed inset-x-0 bottom-0 flex flex-1 flex-row max-w-[600px] " style={{
+      margin:"0 auto",
+      borderTop:"1px solid gray",
+      backgroundColor:"white"
+    }}>
       <Link
         className="flex flex-1 flex-col items-center justify-center py-2 text-sm text-gray-500 dark:text-gray-400"
         href="#">

@@ -1,8 +1,10 @@
 import { configureStore,combineReducers } from '@reduxjs/toolkit'
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import cartSliceReducer from './slices/cartSlice'
-import favItemReducer from './slices/favItemSclice'
+import cartSliceReducer from './slices/cartSlice';
+//import cartSliceReducer from './slices/cartSlice'
+//import favItemReducer from './slices/favItemSclice'
+import favItemReducer from './slices/favItemSlice';
 
 const persistConfig = {
     key: "root",

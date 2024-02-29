@@ -1,5 +1,6 @@
 //import React from 'react'
 
+import DetailPagePresent from "@/components/detail-page-present"
 import { HomeComp } from "@/components/home-comp"
 import productData from "@/data/productData"
 
@@ -12,7 +13,7 @@ export default function page({ params }) {
 
   return (
     <div>
-      <HomeComp
+      <DetailPagePresent
         product={product}
       />
     </div>

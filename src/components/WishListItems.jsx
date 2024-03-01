@@ -1,6 +1,7 @@
-import { Tabs } from 'antd-mobile'
+import { Grid, Tabs } from 'antd-mobile'
 import React,{useState} from 'react'
 import { useSelector } from 'react-redux'
+import WishItem from './WishItem'
 
 export default function WishListItems() {
     const {savedItems}= useSelector((state)=> state.favItem)
@@ -10,6 +11,14 @@ export default function WishListItems() {
 <TabsElements
 wishListcount={savedItems.length}
 />
+<Grid columns={2} gap={10}>
+    {savedItems.map((item)=>(
+        <WishItem
+key={item.key}
+item={item}
+        />
+    ))}
+</Grid>
         </div>
     )
 }

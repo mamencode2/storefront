@@ -8,9 +8,10 @@ import { addItemToFevList,removeItemFromList } from "@/redux/slices/favItemSlice
 
 export default function AddToCartFrm({product}) {
     const [isLiked, setLiked]= useState(false)
-
+const {savedItems} = useSelector((state)=> state.favItem)
+console.log(savedItems)
     function handleFevAddRemove(){
-        
+       console.log(product) 
     }
   return (
     <div

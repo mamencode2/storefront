@@ -6,7 +6,7 @@ export default function WishItem({ item }) {
     return (
         <Grid.Item
             style={{
-                backgroundColor: 'gray',
+                backgroundColor: 'white',
                 borderRadius: '10px'
 
             }}
@@ -14,12 +14,19 @@ export default function WishItem({ item }) {
 
             <div
                 style={{
-                    padding: '0px'
+                    paddingBottom: '20px'
                 }}
 
             >
 
-                <Image src={item.goods_img} />
+                <Image src={item.goods_img} 
+                style={{
+                    borderTopLeftRadius:'10px',
+                    borderTopRightRadius:'10px'
+
+                }}
+
+                />
 
 
                 <div className="goods-name">

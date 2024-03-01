@@ -1,11 +1,12 @@
 'use client'
 import { currencyConvert } from '@/utils/helper';
 //import { Swiper ,Image, Skeleton} from 'antd-mobile/es/components/swiper/swiper';
-import { Image, ImageViewer, Skeleton, SwipeAction, Swiper } from 'antd-mobile';
+import { Badge, Image, ImageViewer, Skeleton, SwipeAction, Swiper } from 'antd-mobile';
 import Link from 'next/link';
 import React, { useState } from 'react'
 import AddToCartFrm from './AddToCartFrm';
 import { useRouter } from 'next/navigation';
+import { useSelector } from 'react-redux';
 
 export default function DetailPagePresent({ product }) {
     return (
@@ -176,6 +177,7 @@ function HeroBanner({ product }) {
 }
 function DetailHeader(props) {
     const router = useRouter();
+    const {cartItems}= useSelector((state)=> state.cart)
     return (
         <div className="flex items-center justify-between px-4 py-2"
 
@@ -195,7 +197,12 @@ function DetailHeader(props) {
             <div className="flex space-x-2">
                 <SearchIcon className="text-black" />
                 <Link href='/cart'>
+                    <Badge
+                    content={cartItems.length >0? cartItems.length:''}
+                    >
+
                     <ShoppingCartIcon className="text-black" />
+                    </Badge>
                 </Link>
             </div>
         </div>

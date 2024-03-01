@@ -5,6 +5,7 @@ import { Button } from "antd-mobile";
 import { useDispatch, useSelector } from "react-redux";
 import { addItemToFevList,removeItemFromList } from "@/redux/slices/favItemSlice";
 import { currencyConvert } from "@/utils/helper";
+import { addToCart } from "@/redux/slices/cartSlice";
 //import { addItemToFevList, removeItemFromList } from "@/redux/slices/favItemSclice";
 
 export default function AddToCartFrm({product}) {
@@ -30,9 +31,10 @@ setLiked(savedItems.findIndex((item)=> item.key === product.key)!==-1)
       let item={
         ...product,
         qty:1,
-        price: currencyConvert(product.salePrice.amount).curAmt
+        price: Number(currencyConvert(product.salePrice.amount).curAmt)
       }
       console.log(item)
+      dispatch(addToCart(item))
     }
   return (
     <div

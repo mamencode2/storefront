@@ -21,7 +21,11 @@ function TabsElements({ wishListcount }) {
             stretch
             style={{
                 '--active-line-color': '#000',
-                '--active-title-color': '#000'
+                '--active-title-color': '#000',
+                '--active-line-height':'3px',
+                fontSize:'14px',
+                color:'#767676',
+                fontWeight:'bold'
             }}
 
         >

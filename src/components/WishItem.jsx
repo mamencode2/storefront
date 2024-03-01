@@ -11,7 +11,8 @@ export default function WishItem({ item }) {
 
             }}
         >
-            <Card
+
+            <div
                 style={{
                     padding: '0px'
                 }}
@@ -34,7 +35,7 @@ export default function WishItem({ item }) {
                         </span>
                     </h1>
                 </div>
-            </Card>
+            </div>
         </Grid.Item>
     )
 }

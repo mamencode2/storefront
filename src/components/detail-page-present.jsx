@@ -87,7 +87,13 @@ function BottomInfo({ product }) {
                 <div className="" />
             </div>
             <div className="goods-name">
-                <h1 className='detail-title'>
+                <h1 className='detail-title'
+                 style={{
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    whiteSpace: "nowrap",
+                  }}
+                >
                     <span className="detail-title-text">
                         {product.goods_name}
                     </span>

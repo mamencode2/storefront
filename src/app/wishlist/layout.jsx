@@ -1,8 +1,9 @@
 'use client'
 
 import CartBadge from '@/components/CartBadge'
-import { NavBar } from 'antd-mobile'
-import { useRouter } from 'next/router'
+import { NavBar, Space } from 'antd-mobile'
+import { useRouter } from 'next/navigation'
+import { UnorderedListOutline } from "antd-mobile-icons";
 import React from 'react'
 
 export default function WishListLayout({children}) {
@@ -21,15 +22,28 @@ export default function WishListLayout({children}) {
 
 function HeaderElement(){
     const router = useRouter()
+
+    const right = (
+        <div style={{ fontSize: 24 }}>
+          <Space style={{ '--gap': '16px' }}>
+            < UnorderedListOutline/>
+            <CartBadge/>
+          </Space>
+        </div>
+      )
     return(
         <NavBar
         onBack={()=>{
             router.back()
         }}
 
-        right={<CartBadge/>}
+        right={right}
         >
-            <h3>
+            <h3
+            style={{
+                fontWeight:'bold'
+            }}
+            >
                 WishList
             </h3>
         </NavBar>

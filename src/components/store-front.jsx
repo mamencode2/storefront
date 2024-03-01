@@ -23,7 +23,10 @@ export function StoreFront() {
       >
         <MenuIcon className="text-black" />
         <Input className="flex-1 mx-2" placeholder="Search This Store" type="search" />
+        <Link href='/wishlist'>
+
         <HeartIcon className="text-black" />
+        </Link>
         <MoreVerticalIcon className="text-black" />
       </div>
       <div className="p-4">

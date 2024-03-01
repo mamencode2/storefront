@@ -1,6 +1,8 @@
 'use client'
 
+import CartBadge from '@/components/CartBadge'
 import { NavBar } from 'antd-mobile'
+import { useRouter } from 'next/router'
 import React from 'react'
 
 export default function WishListLayout({children}) {
@@ -10,7 +12,7 @@ export default function WishListLayout({children}) {
         padding:'8px 12px'
     }}
     >
-
+<HeaderElement/>
         {children}
     </div>
   )
@@ -18,8 +20,15 @@ export default function WishListLayout({children}) {
 
 
 function HeaderElement(){
+    const router = useRouter()
     return(
-        <NavBar>
+        <NavBar
+        onBack={()=>{
+            router.back()
+        }}
+
+        right={<CartBadge/>}
+        >
             <h3>
                 WishList
             </h3>

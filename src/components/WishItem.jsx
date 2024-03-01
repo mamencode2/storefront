@@ -19,7 +19,7 @@ export default function WishItem({ item }) {
                         }}
                     >
                         <span className="detail-title-text">
-                            {otem.goods_name}
+                            {item.goods_name}
                         </span>
                     </h1>
                 </div>

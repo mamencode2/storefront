@@ -10,9 +10,20 @@ export default function AddToCartFrm({product}) {
     const [isLiked, setLiked]= useState(false)
 const {savedItems} = useSelector((state)=> state.favItem)
 console.log(savedItems)
+const dispatch= useDispatch()
     function handleFevAddRemove(){
        console.log(product) 
+
+       if (isLiked) {
+        dispatch(removeItemFromList(product))
+       } else {
+        dispatch(addItemToFevList(product))
+       }
     }
+
+    useEffect(()=>{
+setLiked(savedItems.findIndex((item)=> item.key === product.key)!==-1)
+    },[product,savedItems])
   return (
     <div
       style={{

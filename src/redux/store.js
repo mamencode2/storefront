@@ -8,7 +8,8 @@ import favItemReducer from './slices/favItemSlice';
 
 const persistConfig = {
     key: "root",
-    storage
+    storage,
+    blacklist: ['nonPersistableState'],
   };
   const rootReducer = combineReducers({
     cart: cartSliceReducer,

@@ -1,12 +1,15 @@
 'use client'
 
 import CartBadge from '@/components/CartBadge'
-import { NavBar, Space } from 'antd-mobile'
+import { Button, ErrorBlock, NavBar, Space } from 'antd-mobile'
 import { useRouter } from 'next/navigation'
 import { UnorderedListOutline } from "antd-mobile-icons";
 import React from 'react'
+import { useSelector } from 'react-redux';
+import WishListItems from '@/components/WishListItems';
 
 export default function WishListLayout({children}) {
+    const {savedItems}= useSelector((state)=> state.favItem)
   return (
     <div
     style={{
@@ -14,19 +17,36 @@ export default function WishListLayout({children}) {
     }}
     >
 <HeaderElement/>
+{savedItems.length>0?<WishListItems/>:<EmpetyWishList/>}
         {children}
     </div>
   )
 }
 
-
+function EmpetyWishList(){
+    return(
+        <ErrorBlock
+        image='https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg'
+        style={{
+          '--image-height': '150px',
+        }}
+        description={
+          <span>
+            Wish List Empety
+          </span>
+        }
+      >
+        <Button color='primary'>Shop Now</Button>
+      </ErrorBlock>
+    )
+}
 function HeaderElement(){
     const router = useRouter()
 
     const right = (
-        <div style={{ fontSize: 24 }}>
-          <Space style={{ '--gap': '16px' }}>
-            < UnorderedListOutline/>
+        <div  >
+          <Space style={{ '--gap': '10px' }}>
+            < UnorderedListOutline fontSize={24}/>
             <CartBadge/>
           </Space>
         </div>

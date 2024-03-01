@@ -1,12 +1,14 @@
 import { Tabs } from 'antd-mobile'
 import React from 'react'
+import { useSelector } from 'react-redux'
 
 export default function WishListItems() {
+    const {savedItems}= useSelector((state)=> state.favItem)
     return (
         <div>
 
 <TabsElements
-wishListcount={2}
+wishListcount={savedItems.length}
 />
         </div>
     )
@@ -32,7 +34,7 @@ function TabsElements({ wishListcount }) {
             <Tabs.Tab key='items'
                 title={
                     <div>
-                        {wishListcount} items
+                        Items({wishListcount}) 
                     </div>
                 }
             />

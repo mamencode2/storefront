@@ -11,7 +11,11 @@ export default function WishListItems() {
 <TabsElements
 wishListcount={savedItems.length}
 />
-<Grid columns={2} gap={10}>
+<Grid columns={2} gap={6}
+style={{
+    background:'#f1f1f1'
+}}
+>
     {savedItems.map((item)=>(
         <WishItem
 key={item.key}

@@ -1,16 +1,29 @@
 'use client'
-import { Grid ,Card} from 'antd-mobile'
+import { Grid, Card } from 'antd-mobile'
 import React from 'react'
 
-export default function WishItem({item}) {
-  return (
-    <Grid.Item>
-        <Card>
+export default function WishItem({ item }) {
+    return (
+        <Grid.Item>
+            <Card>
 
-        <h1>
-            WishItem
-            </h1>
-        </Card>
+
+
+
+                <div className="goods-name">
+                    <h1 className='detail-title'
+                        style={{
+                            overflow: "hidden",
+                            textOverflow: "ellipsis",
+                            whiteSpace: "nowrap",
+                        }}
+                    >
+                        <span className="detail-title-text">
+                            {otem.goods_name}
+                        </span>
+                    </h1>
+                </div>
+            </Card>
         </Grid.Item>
-  )
+    )
 }

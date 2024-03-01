@@ -1,5 +1,5 @@
 import { Tabs } from 'antd-mobile'
-import React from 'react'
+import React,{useState} from 'react'
 import { useSelector } from 'react-redux'
 
 export default function WishListItems() {
@@ -16,10 +16,11 @@ wishListcount={savedItems.length}
 
 
 function TabsElements({ wishListcount }) {
-    let activeKey = 'items'
+    const [activeTab, setActiveTab]= useState('items')
+    
     return (
         <Tabs
-            activeKey={activeKey}
+            activeKey={activeTab}
             stretch
             style={{
                 '--active-line-color': '#000',
@@ -30,6 +31,9 @@ function TabsElements({ wishListcount }) {
                 fontWeight:'bold'
             }}
 
+            onChange={(key)=>{
+                setActiveTab(key)
+            }}
         >
             <Tabs.Tab key='items'
                 title={

@@ -25,6 +25,7 @@ export default function DetailPagePresent({ product }) {
 
 function BottomInfo({ product }) {
     let salePrice = currencyConvert(Number(product.salePrice.amount))
+    let retailPrice = currencyConvert(Number(product.retailPrice.amount))
     return (
         <div
             className=""
@@ -42,7 +43,12 @@ function BottomInfo({ product }) {
                     justifyContent: "space-between",
                 }}
             >
-                <div className="">
+                <div className=""
+                style={{
+                    display:'flex',
+                    alignItems:'center'
+                }}
+                >
                     <span
                         style={{
                             fontSize: "20px",
@@ -60,10 +66,33 @@ function BottomInfo({ product }) {
                     >
                         ብር
                     </span>
+                    <div className=""
+                    style={{
+                        marginLeft:'8px'
+                    }}
+                    >
+                    <span
+                        style={{
+                            fontSize: "12px",
+                            textDecoration:'line-through'
+                        }}
+                    >
+                        {retailPrice.curAmt}
+                        {' '}
+                        ብር
+                    </span>
+
+                    </div>
                 </div>
                 <div className="" />
             </div>
-            <h3>Bottom Info</h3>
+            <div className="goods-name">
+                <h1 className='detail-title'>
+                    <span className="detail-title-text">
+                        {product.goods_name}
+                    </span>
+                </h1>
+            </div>
         </div>
     )
 }

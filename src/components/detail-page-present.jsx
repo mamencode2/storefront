@@ -5,6 +5,7 @@ import { Image, ImageViewer, Skeleton, SwipeAction, Swiper } from 'antd-mobile';
 import Link from 'next/link';
 import React, { useState } from 'react'
 import AddToCartFrm from './AddToCartFrm';
+import { useRouter } from 'next/router';
 
 export default function DetailPagePresent({ product }) {
     return (
@@ -136,6 +137,7 @@ function HeroBanner({ product }) {
     )
 }
 function DetailHeader(props) {
+    const router = useRouter();
     return (
         <div className="flex items-center justify-between px-4 py-2"
 
@@ -147,7 +149,10 @@ function DetailHeader(props) {
                 backgroundColor: "white"
             }}
         >
-            <ArrowLeftIcon className="text-black" />
+            <ArrowLeftIcon className="text-black" 
+            onClick={() => router.back()}
+            
+            />
             <div className="flex-1 text-center font-bold text-black">SHEIN</div>
             <div className="flex space-x-2">
                 <SearchIcon className="text-black" />

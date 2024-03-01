@@ -5,7 +5,7 @@ import { Image, ImageViewer, Skeleton, SwipeAction, Swiper } from 'antd-mobile';
 import Link from 'next/link';
 import React, { useState } from 'react'
 import AddToCartFrm from './AddToCartFrm';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 export default function DetailPagePresent({ product }) {
     return (
@@ -14,9 +14,7 @@ export default function DetailPagePresent({ product }) {
             <HeroBanner
                 product={product}
             />
-            <BottomInfo
-                product={product}
-            />
+
             <AddToCartFrm
 
                 product={product}
@@ -122,16 +120,21 @@ function HeroBanner({ product }) {
     return (
         <>
             {isVisible ? <MultiImgElemets /> : (
-                <Swiper
-                    slideSize={68}
-                    onIndexChange={(index) => {
-                        setCurrentIndex(index);
-                    }}
-                    defaultIndex={currentIndex}
+                <>
+                    <Swiper
+                        slideSize={68}
+                        onIndexChange={(index) => {
+                            setCurrentIndex(index);
+                        }}
+                        defaultIndex={currentIndex}
 
-                >
-                    {items}
-                </Swiper>
+                    >
+                        {items}
+                    </Swiper>
+                    <BottomInfo
+                        product={product}
+                    />
+                </>
             )}
         </>
     )
@@ -149,9 +152,9 @@ function DetailHeader(props) {
                 backgroundColor: "white"
             }}
         >
-            <ArrowLeftIcon className="text-black" 
-            onClick={() => router.back()}
-            
+            <ArrowLeftIcon className="text-black"
+                onClick={() => router.back()}
+
             />
             <div className="flex-1 text-center font-bold text-black">SHEIN</div>
             <div className="flex space-x-2">

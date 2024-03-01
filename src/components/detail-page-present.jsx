@@ -7,6 +7,7 @@ import React, { useState } from 'react'
 import AddToCartFrm from './AddToCartFrm';
 import { useRouter } from 'next/navigation';
 import { useSelector } from 'react-redux';
+import CartBadge from './CartBadge';
 
 export default function DetailPagePresent({ product }) {
     return (
@@ -196,14 +197,7 @@ function DetailHeader(props) {
             <div className="flex-1 text-center font-bold text-black">SHEIN</div>
             <div className="flex space-x-2">
                 <SearchIcon className="text-black" />
-                <Link href='/cart'>
-                    <Badge
-                    content={cartItems.length >0? cartItems.length:''}
-                    >
-
-                    <ShoppingCartIcon className="text-black" />
-                    </Badge>
-                </Link>
+                <CartBadge/>
             </div>
         </div>
     )

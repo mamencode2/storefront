@@ -26,6 +26,7 @@ export function StoreFront() {
         <Link href='/wishlist'>
 
         <HeartIcon className="text-black" />
+        
         </Link>
         <MoreVerticalIcon className="text-black" />
       </div>

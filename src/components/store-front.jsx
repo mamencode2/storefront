@@ -144,64 +144,70 @@ export function StoreFront() {
         </Select>
         <SettingsIcon className="text-black" />
       </div>
-      <div className="grid grid-cols-2 gap-4 p-4"
-      style={{
-        backgroundColor:'#f1f1f1' ,
 
-      }}
-      >
-        {prData.map((product)=>(
-          <div
-          key={product.key}
-         style={{
-        backgroundColor:'#fff' ,
-        
-      }}
-          >
-         <div className=""
-          style={{
-            height:'250px'
-          }}
-         
-         >
-          <Link
-          href={`${product.goods_url_name.split(' ').map((wrd)=>wrd).join('-')}-p-${product.key}`}
 
-          
-          >
-         <img
-            alt={product.goods_name}
-            className="w-full"
-            
-            src={product.goods_img}
-            style={{
-              aspectRatio: "200/200",
-              objectFit: "cover",
-              height:"100%",
-              
-            }}
-             />
-             </Link>
-
-         </div>
-          <div className="text-center"
-          
-          style={{
-            overflow: "hidden",
-            textOverflow: "ellipsis",
-            whiteSpace: "nowrap",
-          }}
-          >{product.goods_name}</div>
-          <div className="text-center text-sm text-gray-500">60+ sold recently</div>
-        </div>
-        ))}
-        
-       
-      </div>
     </div>)
   );
 }
 
+function ListElements(){
+  return(
+    <div className="grid grid-cols-2 gap-4 p-4"
+    style={{
+      backgroundColor:'#f1f1f1' ,
+
+    }}
+    >
+      {prData.map((product)=>(
+        <div
+        key={product.key}
+       style={{
+      backgroundColor:'#fff' ,
+      
+    }}
+        >
+       <div className=""
+        style={{
+          height:'250px'
+        }}
+       
+       >
+        <Link
+        href={`${product.goods_url_name.split(' ').map((wrd)=>wrd).join('-')}-p-${product.key}`}
+
+        
+        >
+       <img
+          alt={product.goods_name}
+          className="w-full"
+          
+          src={product.goods_img}
+          style={{
+            aspectRatio: "200/200",
+            objectFit: "cover",
+            height:"100%",
+            
+          }}
+           />
+           </Link>
+
+       </div>
+        <div className="text-center"
+        
+        style={{
+          overflow: "hidden",
+          textOverflow: "ellipsis",
+          whiteSpace: "nowrap",
+        }}
+        >{product.goods_name}</div>
+        <div className="text-center text-sm text-gray-500">60+ sold recently</div>
+      </div>
+      ))}
+      
+     
+    </div>
+  )
+}
 
 function MenuIcon(props) {
   return (

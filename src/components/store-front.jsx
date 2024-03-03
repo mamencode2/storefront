@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { SelectValue, SelectTrigger, Select } from "@/components/ui/select"
 import productData from "@/data/productData";
 import Link from "next/link";
+import prData from "@/data/prData";
 
 export function StoreFront() {
   return (
@@ -144,7 +145,7 @@ export function StoreFront() {
         <SettingsIcon className="text-black" />
       </div>
       <div className="grid grid-cols-2 gap-4 p-4">
-        {productData.map((product)=>(
+        {prData.map((product)=>(
           <div
           key={product.key}
          

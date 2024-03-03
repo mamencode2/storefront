@@ -2,6 +2,7 @@
 
 import DetailPagePresent from "@/components/detail-page-present"
 import { HomeComp } from "@/components/home-comp"
+import prData from "@/data/prData"
 import productData from "@/data/productData"
 
 export default function page({ params }) {
@@ -9,7 +10,7 @@ export default function page({ params }) {
 
 
 
-  let product = productData.find((item) => item.key === productKey)
+  let product = prData.find((item) => item.key === productKey)
 
   return (
     <div>

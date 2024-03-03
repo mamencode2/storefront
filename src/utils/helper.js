@@ -1,3 +1,5 @@
+import prData from "@/data/prData";
+
 export function currencyConvert(amount){
     let convertedCurr =new Intl.NumberFormat("am-ET", {
       maximumFractionDigits: 0,
@@ -22,6 +24,14 @@ function sliceArray(array, sliceSize) {
   }
   return slicedArrays;
 }
+let count =0
+let slicedproducts = sliceArray(prData,20)
 export async function mockRequest(){
+  if (count >= 5) {
+    return []
+  }
+  await sleep(2000)
+  count++
 
+  return slicedproducts[count]
 }

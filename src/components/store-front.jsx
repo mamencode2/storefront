@@ -144,11 +144,19 @@ export function StoreFront() {
         </Select>
         <SettingsIcon className="text-black" />
       </div>
-      <div className="grid grid-cols-2 gap-4 p-4">
+      <div className="grid grid-cols-2 gap-4 p-4"
+      style={{
+        backgroundColor:'#f1f1f1' ,
+
+      }}
+      >
         {prData.map((product)=>(
           <div
           key={product.key}
-         
+         style={{
+        backgroundColor:'#fff' ,
+        
+      }}
           >
          <div className=""
           style={{

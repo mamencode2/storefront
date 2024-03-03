@@ -15,9 +15,10 @@ export default function ListingInfinite() {
     return (
         <>
 
-            <Grid columns={2} gap={10}
+            <Grid columns={2} gap={6}
                 style={{
-                    background: '#f1f1f1'
+                    background: '#f1f1f1',
+                    padding:'0 6.2px'
                 }}
             >
 

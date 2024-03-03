@@ -9,14 +9,14 @@ export default function WishItem({ item }) {
             style={{
                 backgroundColor: 'white',
 
-                borderTopLeftRadius: '10px',
+                borderTopLeftRadius: '4px',
 
-                borderTopRightRadius: '10px'
+                borderTopRightRadius: '4px'
 
 
             }}
         >
-            
+
 
 
 
@@ -36,9 +36,9 @@ export default function WishItem({ item }) {
 
                     <Image src={item.goods_img}
                         style={{
-                            borderTopLeftRadius: '10px',
+                            borderTopLeftRadius: '4px',
 
-                            borderTopRightRadius: '10px'
+                            borderTopRightRadius: '4px'
 
                         }}
 

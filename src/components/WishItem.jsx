@@ -205,7 +205,8 @@ function QuickView({ product }) {
                                         src={item}
 
                                         style={{
-                                            maxHeight:"250px"
+                                            maxHeight:"210px",
+                                            marginRight:"10px"
                                         }}
                                     />
                                 </Swiper.Item>

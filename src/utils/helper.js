@@ -27,7 +27,7 @@ function sliceArray(array, sliceSize) {
 let count =0
 let slicedproducts = sliceArray(prData,20)
 export async function mockRequest(){
-  if (count >= 5) {
+  if (count >= slicedproducts.length) {
     return []
   }
   await sleep(2000)

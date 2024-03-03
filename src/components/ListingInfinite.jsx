@@ -1,7 +1,9 @@
 'use client'
 import React, { useState } from 'react';
-import { InfiniteScroll, List } from 'antd-mobile';
-import { mockRequest } from './mock-request';
+import { InfiniteScroll, List, Grid } from 'antd-mobile';
+import { mockRequest } from '@/utils/helper';
+import WishItem from './WishItem';
+//import { mockRequest } from './mock-request';
 export default function ListingInfinite() {
     const [data, setData] = useState([]);
     const [hasMore, setHasMore] = useState(true);
@@ -10,10 +12,24 @@ export default function ListingInfinite() {
         setData(val => [...val, ...append]);
         setHasMore(append.length > 0);
     }
-    return (<>
-        <List>
-            {data.map((item, index) => (<List.Item key={index}>{item}</List.Item>))}
-        </List>
-        <InfiniteScroll loadMore={loadMore} hasMore={hasMore} />
-    </>);
+    return (
+        <>
+
+            <Grid columns={2} gap={8}
+                style={{
+                    background: '#f1f1f1'
+                }}
+            >
+
+                {data.map((item) => (
+                    <WishItem
+                        key={item.key}
+                        item={item}
+                    />
+                ))}
+
+            </Grid>
+            <InfiniteScroll loadMore={loadMore} hasMore={hasMore} />
+        </>
+    );
 };

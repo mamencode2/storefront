@@ -8,7 +8,10 @@ export default function WishItem({ item }) {
         <Grid.Item
             style={{
                 backgroundColor: 'white',
-                borderRadius: '10px'
+                
+                borderTopLeftRadius: '10px',
+                borderTopRightRadius: '10px'
+
 
             }}
         >
@@ -29,9 +32,7 @@ export default function WishItem({ item }) {
 
                     <Image src={item.goods_img}
                         style={{
-                            borderTopLeftRadius: '10px',
-                            borderTopRightRadius: '10px'
-
+                            borderRadius: 'inherit'
                         }}
 
                     />

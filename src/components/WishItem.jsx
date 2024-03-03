@@ -10,6 +10,7 @@ export default function WishItem({ item }) {
                 backgroundColor: 'white',
                 
                 borderTopLeftRadius: '10px',
+
                 borderTopRightRadius: '10px'
 
 
@@ -32,18 +33,26 @@ export default function WishItem({ item }) {
 
                     <Image src={item.goods_img}
                         style={{
-                            borderRadius: 'inherit'
+                            borderTopLeftRadius: '10px',
+
+                borderTopRightRadius: '10px'
+
                         }}
 
                     />
                 </Link>
 
-                <div className="goods-name">
+                <div className="goods-name"
+                style={{
+                    marginTop:'8px'
+                }}
+                >
                     <h1 className='detail-title'
                         style={{
                             overflow: "hidden",
                             textOverflow: "ellipsis",
                             whiteSpace: "nowrap",
+                            padding:'0 8px'
                         }}
                     >
                         <span className="detail-title-text">

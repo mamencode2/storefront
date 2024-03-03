@@ -5,6 +5,7 @@ import Link from 'next/link'
 import React, { useState } from 'react'
 import { CloseOutline } from "antd-mobile-icons";
 import AddToCartFrm from './AddToCartFrm'
+import CommonBottomInfo from './CommonBottomInfo'
 
 export default function WishItem({ item }) {
     return (
@@ -194,7 +195,9 @@ function QuickView({ product }) {
                         }}
                     >
                         <PopupHeader onClose={() => setOpen(false)} />
-                        <h1> hello {product.goods_name}</h1>
+                        <CommonBottomInfo
+                        product={product}
+                        />
                     </div>
                     <AddToCartFrm
                         product={product}
@@ -211,7 +214,7 @@ function QuickView({ product }) {
 function PopupHeader({ onClose }) {
     return  (
         <div style={{
-            marginTop: "10px",
+            
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",

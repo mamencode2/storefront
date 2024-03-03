@@ -11,7 +11,11 @@ import CartBadge from './CartBadge';
 
 export default function DetailPagePresent({ product }) {
     return (
-        <div>
+        <div
+        style={{
+            minHeight:"50vh"
+        }}
+        >
             <DetailHeader />
             <HeroBanner
                 product={product}

@@ -180,7 +180,7 @@ function QuickView({ product }) {
                 position='bottom'
                 bodyStyle={{
                     maxHeight: '80vh',
-                    minHeight:'50vh'
+                    minHeight: '50vh'
                 }}
                 onClose={() => {
                     setOpen(false)
@@ -188,9 +188,16 @@ function QuickView({ product }) {
             >
                 <div className="">
 
-                <h1> hello {product.goods_name}</h1>
-                <AddToCartFrm
-                    product={product}
+                    <div className=""
+                        style={{
+                            padding: "8px 12.5px"
+                        }}
+                    >
+                        <PopupHeader onClose={() => setOpen(false)} />
+                        <h1> hello {product.goods_name}</h1>
+                    </div>
+                    <AddToCartFrm
+                        product={product}
                     />
                 </div>
 
@@ -198,5 +205,24 @@ function QuickView({ product }) {
             </Popup>
 
         </>
+    )
+}
+
+function PopupHeader({ onClose }) {
+    return  (
+        <div style={{
+            marginTop: "10px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between"
+        }}>
+            <div className="" role='button'
+            
+            onClick={onClose}
+            >
+                <CloseOutline />
+            </div>
+            <div className=""></div>
+        </div>
     )
 }

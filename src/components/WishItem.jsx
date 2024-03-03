@@ -1,6 +1,6 @@
 'use client'
 import { currencyConvert } from '@/utils/helper'
-import { Grid, Card, Image, Popup } from 'antd-mobile'
+import { Grid, Card, Image, Popup, Swiper } from 'antd-mobile'
 import Link from 'next/link'
 import React, { useState } from 'react'
 import { CloseOutline } from "antd-mobile-icons";
@@ -195,8 +195,24 @@ function QuickView({ product }) {
                         }}
                     >
                         <PopupHeader onClose={() => setOpen(false)} />
+                        <Swiper indicator={() => null} slideSize={55} 
+                        
+                        
+                        >
+                            {[...product.detail_image, product.goods_img].map((item, index) => (
+                                <Swiper.Item key={index}>
+                                    <Image
+                                        src={item}
+
+                                        style={{
+                                            maxHeight:"250px"
+                                        }}
+                                    />
+                                </Swiper.Item>
+                            ))}
+                        </Swiper>
                         <CommonBottomInfo
-                        product={product}
+                            product={product}
                         />
                     </div>
                     <AddToCartFrm
@@ -212,25 +228,25 @@ function QuickView({ product }) {
 }
 
 function PopupHeader({ onClose }) {
-    return  (
+    return (
         <div style={{
-            
+
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            width:"100%",
-            padding:"8px"
+            width: "100%",
+            padding: "8px"
         }}>
-            <div className=""/>
+            <div className="" />
             <div className="" role='button'
-            style={{
-                display:"block"
-            }}
-            onClick={onClose}
+                style={{
+                    display: "block"
+                }}
+                onClick={onClose}
             >
-                <CloseOutline fontSize={18}/>
+                <CloseOutline fontSize={18} />
             </div>
-            
+
         </div>
     )
 }

@@ -8,7 +8,7 @@ export default function WishItem({ item }) {
         <Grid.Item
             style={{
                 backgroundColor: 'white',
-                
+
                 borderTopLeftRadius: '10px',
 
                 borderTopRightRadius: '10px'
@@ -16,6 +16,9 @@ export default function WishItem({ item }) {
 
             }}
         >
+            
+
+
 
             <div
                 style={{
@@ -24,18 +27,18 @@ export default function WishItem({ item }) {
 
             >
                 <Link
-                
-                href={`${item.goods_url_name.split(' ').map((wrd)=>wrd).join('-')}-p-${item.key}`}
 
-                
-                
+                    href={`${item.goods_url_name.split(' ').map((wrd) => wrd).join('-')}-p-${item.key}`}
+
+
+
                 >
 
                     <Image src={item.goods_img}
                         style={{
                             borderTopLeftRadius: '10px',
 
-                borderTopRightRadius: '10px'
+                            borderTopRightRadius: '10px'
 
                         }}
 
@@ -43,16 +46,16 @@ export default function WishItem({ item }) {
                 </Link>
 
                 <div className="goods-name"
-                style={{
-                    marginTop:'8px'
-                }}
+                    style={{
+                        marginTop: '8px'
+                    }}
                 >
                     <h1 className='detail-title'
                         style={{
                             overflow: "hidden",
                             textOverflow: "ellipsis",
                             whiteSpace: "nowrap",
-                            padding:'0 8px'
+                            padding: '0 8px'
                         }}
                     >
                         <span className="detail-title-text">

@@ -9,8 +9,11 @@ export default function ListingInfinite() {
     const [hasMore, setHasMore] = useState(true);
     async function loadMore() {
         const append = await mockRequest();
-        setData(val => [...val, ...append]);
-        setHasMore(append.length > 0);
+        if (append?.length>0) {
+            
+            setData(val => [...val, ...append]);
+            setHasMore(append.length > 0);
+        }
     }
     return (
         <>

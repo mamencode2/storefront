@@ -168,8 +168,8 @@ function QuickView({ product }) {
             <div className="" role='button'
                 style={{
                     border: '1px solid black',
-                    padding: '2px 8px',
-                    borderRadius: '45%'
+                    padding: '4px 8px',
+                    borderRadius: '42%'
                 }}
                 onClick={() => setOpen(true)}
 

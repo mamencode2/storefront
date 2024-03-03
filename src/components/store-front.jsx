@@ -8,6 +8,7 @@ import { SelectValue, SelectTrigger, Select } from "@/components/ui/select"
 import productData from "@/data/productData";
 import Link from "next/link";
 import prData from "@/data/prData";
+import ListingInfinite from "./ListingInfinite";
 
 export function StoreFront() {
   return (
@@ -145,6 +146,7 @@ export function StoreFront() {
         <SettingsIcon className="text-black" />
       </div>
 
+<ListingInfinite/>
 
     </div>)
   );

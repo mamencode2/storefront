@@ -214,15 +214,20 @@ function PopupHeader({ onClose }) {
             marginTop: "10px",
             display: "flex",
             alignItems: "center",
-            justifyContent: "space-between"
+            justifyContent: "space-between",
+            width:"100%",
+            padding:"8px"
         }}>
+            <div className=""/>
             <div className="" role='button'
-            
+            style={{
+                display:"block"
+            }}
             onClick={onClose}
             >
-                <CloseOutline />
+                <CloseOutline fontSize={18}/>
             </div>
-            <div className=""></div>
+            
         </div>
     )
 }

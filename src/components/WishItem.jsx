@@ -1,8 +1,10 @@
 'use client'
 import { currencyConvert } from '@/utils/helper'
-import { Grid, Card, Image } from 'antd-mobile'
+import { Grid, Card, Image, Popup } from 'antd-mobile'
 import Link from 'next/link'
 import React, { useState } from 'react'
+import { CloseOutline } from "antd-mobile-icons";
+import AddToCartFrm from './AddToCartFrm'
 
 export default function WishItem({ item }) {
     return (
@@ -63,63 +65,63 @@ export default function WishItem({ item }) {
                             {item.goods_name}
                         </span>
                     </h1>
-                    
+
                 </div>
 
                 <PriceLable
-product={item}
-                    />
+                    product={item}
+                />
             </div>
         </Grid.Item>
     )
 }
 
 
-function PriceLable({product}){
+function PriceLable({ product }) {
     let salePrice = currencyConvert(Number(product.salePrice.amount))
     let retailPrice = currencyConvert(Number(product.retailPrice.amount))
-    return(
+    return (
         <div
-                className=""
+            className=""
+            style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                padding: '0 8px'
+            }}
+        >
+            <div className=""
                 style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    padding: '0 8px'
+                    display: 'flex',
+                    alignItems: 'center'
                 }}
             >
-        <div className=""
-                style={{
-                    display:'flex',
-                    alignItems:'center'
-                }}
+                <span
+                    style={{
+                        fontSize: "17px",
+                        fontWeight: "600",
+                        color: Number(product.salePrice.amount) < Number(product.retailPrice.amount) ? "#fa6338" : '',
+                    }}
+                >
+                    {salePrice.curAmt}
+                </span>
+                {" "}
+                <span
+                    style={{
+                        fontSize: "12px",
+                    }}
+                >
+                    ብር
+                </span>
+                <div className=""
+                    style={{
+                        marginLeft: '8px'
+                    }}
                 >
                     <span
                         style={{
-                            fontSize: "17px",
-                            fontWeight: "600",
-                            color: Number(product.salePrice.amount) < Number(product.retailPrice.amount) ? "#fa6338" : '',
-                        }}
-                    >
-                        {salePrice.curAmt}
-                    </span>
-                    {" "}
-                    <span
-                        style={{
                             fontSize: "12px",
-                        }}
-                    >
-                        ብር
-                    </span>
-                    <div className=""
-                    style={{
-                        marginLeft:'8px'
-                    }}
-                    >
-                    <span
-                        style={{
-                            fontSize: "12px",
-                            textDecoration:'line-through'
+                            textDecoration: 'line-through'
                         }}
                     >
                         {retailPrice.curAmt}
@@ -127,51 +129,74 @@ function PriceLable({product}){
                         ብር
                     </span>
 
-                    </div>
                 </div>
-                <QuickView product={product} />
-           
-                </div>
+            </div>
+            <QuickView product={product} />
+
+        </div>
     )
 }
 
 
 function ShoppingCartIcon(props) {
     return (
-      (<svg
-        {...props}
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round">
-        <circle cx="8" cy="21" r="1" />
-        <circle cx="19" cy="21" r="1" />
-        <path
-          d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
-      </svg>)
+        (<svg
+            {...props}
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round">
+            <circle cx="8" cy="21" r="1" />
+            <circle cx="19" cy="21" r="1" />
+            <path
+                d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+        </svg>)
     );
-  }
+}
 
 
-  function QuickView({product}){
-    const [isOpen, setOpen]= useState(false)
-    return(
+function QuickView({ product }) {
+    const [isOpen, setOpen] = useState(false)
+    return (
         <>
-        <div className="" role='button'
-        style={{ 
-          border:'1px solid black',
-          padding:'2px 8px',
-          borderRadius:'45%'   
-        }}>
-        <ShoppingCartIcon/>
-        </div>
+            <div className="" role='button'
+                style={{
+                    border: '1px solid black',
+                    padding: '2px 8px',
+                    borderRadius: '45%'
+                }}
+                onClick={() => setOpen(true)}
 
-        
+            >
+                <ShoppingCartIcon />
+            </div>
+            <Popup visible={isOpen}
+                closeOnMaskClick
+                position='bottom'
+                bodyStyle={{
+                    maxHeight: '80vh',
+                    minHeight:'50vh'
+                }}
+                onClose={() => {
+                    setOpen(false)
+                }}
+            >
+                <div className="">
+
+                <h1> hello {product.goods_name}</h1>
+                <AddToCartFrm
+                    product={product}
+                    />
+                </div>
+
+
+            </Popup>
+
         </>
     )
-  }
+}

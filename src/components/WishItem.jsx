@@ -166,7 +166,7 @@ function ShoppingCartIcon(props) {
         style={{ 
           border:'1px solid black',
           padding:'2px 8px',
-          borderRadius:'6px'   
+          borderRadius:'45%'   
         }}>
         <ShoppingCartIcon/>
         </div>

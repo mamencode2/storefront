@@ -8,7 +8,8 @@ import AddToCartFrm from './AddToCartFrm';
 import { useRouter } from 'next/navigation';
 import { useSelector } from 'react-redux';
 import CartBadge from './CartBadge';
-
+import { StoreCard } from './store-card';
+import { RightOutline } from "antd-mobile-icons";
 export default function DetailPagePresent({ product }) {
     return (
         <div
@@ -21,6 +22,8 @@ export default function DetailPagePresent({ product }) {
                 product={product}
             />
 
+
+            <StoreCard />
             <AddToCartFrm
 
                 product={product}
@@ -28,7 +31,34 @@ export default function DetailPagePresent({ product }) {
         </div>
     )
 }
-
+function StoreE({product}){
+    return(
+        <div className=""
+        style={{
+            padding:"10.3px 12.5px",
+            paddingBottom:"16.7px",
+            background:"white"
+        }}
+        >
+            <div className=""
+            style={{
+                display:"flex",
+                alignItems:"center",
+                justifyContent:"space-between"
+            }}
+            >
+<div className=""
+style={{
+    display:"flex",
+    overflow:"hidden"
+}}
+>
+    
+</div>
+            </div>
+        </div>
+    )
+}
 function BottomInfo({ product }) {
     let salePrice = currencyConvert(Number(product.salePrice.amount))
     let retailPrice = currencyConvert(Number(product.retailPrice.amount))

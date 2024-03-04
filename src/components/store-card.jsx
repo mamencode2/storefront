@@ -6,21 +6,26 @@ import { Button } from "@/components/ui/button"
 
 export function StoreCard() {
   return (
-    (<div className="max-w-[600px] mx-auto p-2">
+    (<div className="max-w-[300px]  p-2">
       <div className="flex items-center space-x-4">
         <img
           alt="SHEIN ICON"
-          className="h-20 w-20"
-          height="80"
+          className="h-10 w-10"
+          height="50"
           src="/placeholder.svg"
           style={{
             aspectRatio: "80/80",
             objectFit: "cover",
           }}
-          width="80" />
+          width="50" />
         <div className="flex-1">
-          <h1 className="text-2xl font-bold">SHEIN ICON</h1>
-          <p className="text-sm text-gray-500 truncate">SHEIN ICON ensures you never go unnoticed with...</p>
+          <h1 
+          style={{
+            fontSize:"14px"
+          }}
+          
+          className=" font-bold">SHEIN ICON</h1>
+          <p className="text-sm text-gray-500 truncate detail-title-text desc-new">SHEIN ICON ensures you never go unnoticed with...</p>
         </div>
         <ChevronRightIcon className="h-6 w-6 text-gray-400" />
       </div>

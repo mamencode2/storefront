@@ -63,3 +63,14 @@ body {
   
   word-break: break-all
 }
+
+.desc-new {
+  
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #818181;
+  font-size: 11.5px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}

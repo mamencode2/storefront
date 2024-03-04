@@ -19,7 +19,7 @@ export default async function page({ params }) {
       <DetailPagePresent
         product={product}
       />
-      <StoreCard/>
+      
     </div>
   )
 }

@@ -59,6 +59,7 @@ const activePath = pathname === '/' || pathname === '/home' ? '/' : pathname;
               color: activePath === link.href? "black":"#767676",
               fontWeight: activePath === link.href?"bold":""
             }}
+            scroll={false}
             href={link.href}>
             {link.icon}
             {link.label}

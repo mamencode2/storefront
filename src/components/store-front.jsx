@@ -155,7 +155,7 @@ export function StoreFront() {
         <SettingsIcon className="text-black" />
       </div>
 
-      <ListElements />
+      {/* <ListElements /> */}
 
     </div>)
   );

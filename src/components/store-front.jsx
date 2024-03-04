@@ -12,12 +12,14 @@ import prData from "@/data/prData";
 import ListingInfinite from "./ListingInfinite";
 import WishItem from "./WishItem";
 import { Grid } from "antd-mobile";
+import HomeHeader from "./HomeHeader";
 
 
 export function StoreFront() {
   return (
     (<div className="max-w-[600px] mx-auto bg-white">
-      <div className="flex items-center justify-between p-4 border-b"
+      <HomeHeader/>
+      {/* <div className="flex items-center justify-between p-4 border-b"
         style={{
           position: "sticky",
           top: 0,
@@ -36,7 +38,7 @@ export function StoreFront() {
 
         </Link>
         <MoreVerticalIcon className="text-black" />
-      </div>
+      </div> */}
       <div className="p-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center">

@@ -34,7 +34,7 @@ export default function WishItem({ item }) {
 
                     href={`${item.goods_url_name.split(' ').map((wrd) => wrd).join('-')}-p-${item.key}`}
 
-
+scroll={false}
 
                 >
 

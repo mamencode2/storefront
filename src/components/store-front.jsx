@@ -13,6 +13,7 @@ import ListingInfinite from "./ListingInfinite";
 import WishItem from "./WishItem";
 import { Grid } from "antd-mobile";
 import HomeHeader from "./HomeHeader";
+import StoreCard from "./StoreCard";
 
 
 export function StoreFront() {
@@ -40,7 +41,8 @@ export function StoreFront() {
         <MoreVerticalIcon className="text-black" />
       </div> */}
       <div className="p-4">
-        <div className="flex items-center justify-between">
+        <StoreCard/>
+        {/* <div className="flex items-center justify-between">
           <div className="flex items-center">
             <img
               alt="SHEIN Kids SUNSHNE"
@@ -71,7 +73,7 @@ export function StoreFront() {
             </div>
           </div>
           <Button className="bg-black text-white">+ Follow</Button>
-        </div>
+        </div> */}
       </div>
       <div className="grid grid-cols-4 gap-2 p-4">
         {[

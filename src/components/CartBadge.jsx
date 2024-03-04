@@ -5,7 +5,23 @@ import { Badge } from 'antd-mobile';
 import Link from 'next/link';
 import React from 'react'
 import { useSelector } from 'react-redux';
+import { HeartOutline, HeartFill } from "antd-mobile-icons";
+export function WishBadge(){
+  const {savedItems}= useSelector((state)=> state.favItem)
 
+  return(
+    <Link href='/wishlist'>
+      <Badge
+      content={savedItems.length>0 ?Badge.dot:''}
+      >
+        <HeartOutline
+        fontSize={24}
+        color='#222'
+        />
+      </Badge>
+    </Link>
+  )
+}
 export default function CartBadge() {
     const {cartItems}= useSelector((state)=> state.cart)
 

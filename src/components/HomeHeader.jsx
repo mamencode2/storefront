@@ -3,6 +3,7 @@ import React, { useRef } from 'react'
 import { Input } from "@/components/ui/input"
 import Link from "next/link"
 import { SearchBar } from 'antd-mobile'
+import CartBadge, { WishBadge } from './CartBadge'
 export default function HomeHeader() {
     const searchRef = useRef()
     return (
@@ -18,19 +19,20 @@ export default function HomeHeader() {
         >
             <MenuIcon className="text-black" />
             <div className="flex items-center space-x-2">
-                <SearchBar  
-                placeholder="Skirt"
+                <SearchBar
+                    placeholder="Skirt"
 
-                style={{
-                    padding:"3px 5px"
-                }}
+                    style={{
+                        padding: "3px 5px",
+                        '--padding-left': '12px',
+                    }}
                 />
                 {/* <Input className="border-0" placeholder="Skirt" type="text" /> */}
             </div>
             <div className="flex items-center space-x-4">
-                <CameraIcon className="text-black" />
-                <HeartIcon className="text-black" />
-                <ShoppingCartIcon className="text-black" />
+                <CameraIcon className="text-gray" />
+                <WishBadge />
+                <CartBadge />
             </div>
         </div>
     )

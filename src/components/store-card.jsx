@@ -39,12 +39,12 @@ export function StoreCard() {
         </div>
         <ChevronRightIcon className="h-6 w-6 text-gray-400" />
       </div>
-      <div className="flex justify-between  border-b py-4 px-2">
+      <div className="flex justify-between    px-3">
         <div className="text-center">
           <div className="text-lg font-semibold">4.87</div>
           <div className="text-sm text-gray-500">Rating</div>
         </div>
-        <div className="border-l border-r px-4">
+        <div className=" px-4">
           <div className="text-lg font-semibold">17K</div>
           <div className="text-sm text-gray-500">Items</div>
         </div>
@@ -53,7 +53,7 @@ export function StoreCard() {
           <div className="text-sm text-gray-500">Followers</div>
         </div>
       </div>
-      <div className="flex space-x-4 mt-4">
+      <div className="flex space-x-4 mt-4 mx-2">
         <Button className="flex-1" variant="outline">
           + Follow
         </Button>

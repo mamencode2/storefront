@@ -19,7 +19,7 @@ import StoreCard from "./StoreCard";
 export function StoreFront() {
   return (
     (<div className="max-w-[600px] mx-auto bg-white">
-      <HomeHeader/>
+      
       {/* <div className="flex items-center justify-between p-4 border-b"
         style={{
           position: "sticky",

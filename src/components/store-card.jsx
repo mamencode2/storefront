@@ -6,8 +6,18 @@ import { Button } from "@/components/ui/button"
 
 export function StoreCard() {
   return (
-    (<div className="max-w-[300px]  p-2">
-      <div className="flex items-center space-x-4">
+    (<div className="max-w-[500px]  p-2"
+    
+    style={{
+      width:'100%'
+    }}
+    >
+      <div className="flex items-center space-x-4"
+      style={{
+        padding:'10px 12.5px',
+        paddingBottom:'16px'
+      }}
+      >
         <img
           alt="SHEIN ICON"
           className="h-10 w-10"
@@ -29,7 +39,7 @@ export function StoreCard() {
         </div>
         <ChevronRightIcon className="h-6 w-6 text-gray-400" />
       </div>
-      <div className="flex justify-between border-t border-b py-4">
+      <div className="flex justify-between  border-b py-4 px-2">
         <div className="text-center">
           <div className="text-lg font-semibold">4.87</div>
           <div className="text-sm text-gray-500">Rating</div>

@@ -36,6 +36,7 @@ export default function WishItem({ item }) {
 
 scroll={false}
 
+
                 >
 
                     <Image src={item.goods_img}

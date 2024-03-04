@@ -12,7 +12,7 @@ export default function ListProducts({initialProducts}) {
     const { ref, inView } = useInView();
 const loadMoreProducts=async () =>{
     const apiProducts = await getProducts(offset,NUMBER_OF_PRODUCTS_TO_FETCH)
-    setProducts([...products,apiProducts])
+    setProducts([...products,...apiProducts])
     setOffset(offset+NUMBER_OF_PRODUCTS_TO_FETCH)
 }
 

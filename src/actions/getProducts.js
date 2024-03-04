@@ -2,6 +2,13 @@
 
 import storwithD from "@/data/storwithD"
 
+export const getStoreData= async (storeCode)=>{
+try {
+    
+} catch (error) {
+    throw new Error(`An error happend:${error}`)
+}
+}
 export const getProduct= async(key)=>{
 try {
     let product = storwithD.map((sdata) => sdata.pItems).flat().find((item)=> item.key === key)

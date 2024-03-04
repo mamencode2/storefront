@@ -6,6 +6,7 @@
  */
 import Link from "next/link"
 import { usePathname } from "next/navigation";
+import CartBadge from "./CartBadge";
 
 let bottomNavs = [
   {
@@ -26,7 +27,7 @@ let bottomNavs = [
   {
     label: "Cart",
     href: "/cart",
-    icon: <ShoppingBagIcon className="h-6 w-6" />
+    icon: <CartBadge />
   },
   {
     label: "Profile",

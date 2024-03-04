@@ -3,6 +3,7 @@
 import { getProduct } from "@/actions/getProducts"
 import DetailPagePresent from "@/components/detail-page-present"
 import { HomeComp } from "@/components/home-comp"
+import { StoreCard } from "@/components/store-card"
 import prData from "@/data/prData"
 import productData from "@/data/productData"
 
@@ -18,6 +19,7 @@ export default async function page({ params }) {
       <DetailPagePresent
         product={product}
       />
+      <StoreCard/>
     </div>
   )
 }

@@ -2,7 +2,7 @@
 import { Button, Image, Skeleton } from 'antd-mobile'
 import React from 'react'
 
-export default function StoreCard({ store }) {
+export default function StoreCardElment({ store }) {
     store = {
         "storeCode": 2452103564,
         "title": "SHEIN ICON",

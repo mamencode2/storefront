@@ -13,7 +13,7 @@ import ListingInfinite from "./ListingInfinite";
 import WishItem from "./WishItem";
 import { Grid } from "antd-mobile";
 import HomeHeader from "./HomeHeader";
-import StoreCard from "./StoreCard";
+import StoreCard from "./StoreCardElment";
 
 
 export function StoreFront() {

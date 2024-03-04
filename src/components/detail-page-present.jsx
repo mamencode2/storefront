@@ -12,9 +12,9 @@ import CartBadge from './CartBadge';
 export default function DetailPagePresent({ product }) {
     return (
         <div
-        style={{
-            minHeight:"50vh"
-        }}
+            style={{
+                minHeight: "50vh"
+            }}
         >
             <DetailHeader />
             <HeroBanner
@@ -50,10 +50,10 @@ function BottomInfo({ product }) {
                 }}
             >
                 <div className=""
-                style={{
-                    display:'flex',
-                    alignItems:'center'
-                }}
+                    style={{
+                        display: 'flex',
+                        alignItems: 'center'
+                    }}
                 >
                     <span
                         style={{
@@ -73,20 +73,20 @@ function BottomInfo({ product }) {
                         ብር
                     </span>
                     <div className=""
-                    style={{
-                        marginLeft:'8px'
-                    }}
-                    >
-                    <span
                         style={{
-                            fontSize: "12px",
-                            textDecoration:'line-through'
+                            marginLeft: '8px'
                         }}
                     >
-                        {retailPrice.curAmt}
-                        {' '}
-                        ብር
-                    </span>
+                        <span
+                            style={{
+                                fontSize: "12px",
+                                textDecoration: 'line-through'
+                            }}
+                        >
+                            {retailPrice.curAmt}
+                            {' '}
+                            ብር
+                        </span>
 
                     </div>
                 </div>
@@ -94,11 +94,11 @@ function BottomInfo({ product }) {
             </div>
             <div className="goods-name">
                 <h1 className='detail-title'
-                 style={{
-                    overflow: "hidden",
-                    textOverflow: "ellipsis",
-                    whiteSpace: "nowrap",
-                  }}
+                    style={{
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                        whiteSpace: "nowrap",
+                    }}
                 >
                     <span className="detail-title-text">
                         {product.goods_name}
@@ -182,7 +182,7 @@ function HeroBanner({ product }) {
 }
 function DetailHeader(props) {
     const router = useRouter();
-    const {cartItems}= useSelector((state)=> state.cart)
+    const { cartItems } = useSelector((state) => state.cart)
     return (
         <div className="flex items-center justify-between px-4 py-2"
 
@@ -201,7 +201,7 @@ function DetailHeader(props) {
             <div className="flex-1 text-center font-bold text-black">SHEIN</div>
             <div className="flex space-x-2">
                 <SearchIcon className="text-black" />
-                <CartBadge/>
+                <CartBadge />
             </div>
         </div>
     )

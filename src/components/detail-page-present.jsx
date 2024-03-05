@@ -24,7 +24,10 @@ export default function DetailPagePresent({ product }) {
             />
 
 
-            <StoreCard />
+            <StoreCard 
+            product={product}
+            
+            />
             <AddToCartFrm
 
                 product={product}

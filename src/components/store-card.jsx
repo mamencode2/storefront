@@ -8,7 +8,13 @@ import { Button } from "@/components/ui/button"
 import { RightOutline } from "antd-mobile-icons";
 import { Button as AntButton, Image } from 'antd-mobile'
 import Link from 'next/link';
-export function StoreCard() {
+import { useState } from "react";
+import { getStoreData } from "@/actions/getProducts";
+export function StoreCard({product}) {
+  const [storeData, setStoreData]= useState({})
+  getStoreData(product.store_code    ).then((data)=>{
+    console.log(data)
+  })
   return (
     (<div className="max-w-[500px]  p-2"
 

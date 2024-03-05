@@ -4,7 +4,9 @@ import storwithD from "@/data/storwithD"
 
 export const getStoreData= async (storeCode)=>{
 try {
-    
+    let storeData = storeWithD.find((item)=> item.store.storeCode ===storeCode)
+
+    return storeData
 } catch (error) {
     throw new Error(`An error happend:${error}`)
 }

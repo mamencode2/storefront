@@ -14,7 +14,8 @@ export default function DetailPagePresent({ product }) {
     return (
         <div
             style={{
-                minHeight: "50vh"
+                minHeight: "50vh",
+                backgroundColor: "#f6f6f6"
             }}
         >
             <DetailHeader />
@@ -31,30 +32,30 @@ export default function DetailPagePresent({ product }) {
         </div>
     )
 }
-function StoreE({product}){
-    return(
+function StoreE({ product }) {
+    return (
         <div className=""
-        style={{
-            padding:"10.3px 12.5px",
-            paddingBottom:"16.7px",
-            background:"white"
-        }}
+            style={{
+                padding: "10.3px 12.5px",
+                paddingBottom: "16.7px",
+                background: "white"
+            }}
         >
             <div className=""
-            style={{
-                display:"flex",
-                alignItems:"center",
-                justifyContent:"space-between"
-            }}
+                style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between"
+                }}
             >
-<div className=""
-style={{
-    display:"flex",
-    overflow:"hidden"
-}}
->
-    
-</div>
+                <div className=""
+                    style={{
+                        display: "flex",
+                        overflow: "hidden"
+                    }}
+                >
+
+                </div>
             </div>
         </div>
     )
@@ -68,7 +69,8 @@ function BottomInfo({ product }) {
             style={{
                 marginTop: "8.3px",
                 padding: "0 12px",
-
+                paddingBottom: "8.3px",
+                backgroundColor: "white"
             }}
         >
             <div

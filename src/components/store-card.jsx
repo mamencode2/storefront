@@ -6,44 +6,51 @@
  */
 import { Button } from "@/components/ui/button"
 import { RightOutline } from "antd-mobile-icons";
-import {Button as AntButton} from 'antd-mobile'
+import { Button as AntButton, Image } from 'antd-mobile'
+import Link from 'next/link';
 export function StoreCard() {
   return (
     (<div className="max-w-[500px]  p-2"
-    
-    style={{
-      width:'100%'
-    }}
+
+      style={{
+        width: '100%',
+        backgroundColor:"white",
+        marginTop: "8.3px",
+      }}
     >
       <div className="flex items-center space-x-4"
-      style={{
-        padding:'10px 12.5px',
-        paddingBottom:'16px'
-      }}
+        style={{
+          padding: '10px 12.5px',
+          paddingBottom: '16px'
+        }}
       >
-        <div className="flex"> 
-        <img
-          alt="SHEIN ICON"
-          className="h-10 w-10"
-          height="50"
-          src="/placeholder.svg"
-          style={{
-            aspectRatio: "80/80",
-            objectFit: "cover",
-            marginRight:"3px"
-          }}
-          width="50" />
-        <div className="flex-1">
-          <h1 
-          style={{
-            fontSize:"14px"
-          }}
+        <div className="flex justify-between items-center">
+          <Image
+            src='https://img.ltwebstatic.com/images3_srm/2023/07/14/1689316995256c877762064041b0a7ccca2c7b9b2e.png'
+            fit="cover"
+            style={{
+              width: "50px",
+              height: "50px",
+              marginRight: "5px"
+            }}
+          />
+          <div className="flex-1">
+            <h1
+              style={{
+                fontSize: "14px"
+              }}
+
+              className=" font-bold">SHEIN ICON</h1>
+            <p className="text-sm text-gray-500 truncate detail-title-text desc-new">SHEIN ICON ensures you never go unnoticed with...</p>
+          </div>
+        </div>
+        <div className="">
+        <RightOutline fontSize={14} 
+        style={{
           
-          className=" font-bold">SHEIN ICON</h1>
-          <p className="text-sm text-gray-500 truncate detail-title-text desc-new">SHEIN ICON ensures you never go unnoticed with...</p>
+        }}
+        />
         </div>
-        </div>
-        <RightOutline fontSize={17}/>
       </div>
       <div className="flex justify-between    px-3">
         <div className="text-center">
@@ -61,18 +68,18 @@ export function StoreCard() {
       </div>
       <div className="flex space-x-4 mt-4 mx-2">
         <AntButton shape="rounded" className="flex-1" variant="outline"
-        style={{
-          fontSize:"14px",
-          fontWeight:"600" 
-        }}
+          style={{
+            fontSize: "14px",
+            fontWeight: "600"
+          }}
         >
           + Follow
         </AntButton>
         <AntButton shape="rounded" className="flex-1" variant="outline"
-        style={{
-          fontSize:"14px",
-          fontWeight:"600" 
-        }}
+          style={{
+            fontSize: "14px",
+            fontWeight: "600"
+          }}
         >
           All Items
         </AntButton>

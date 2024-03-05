@@ -3,8 +3,9 @@
 import storwithD from "@/data/storwithD"
 
 export const getStoreData= async (storeCode)=>{
+    console.log(storeCode)
 try {
-    let storeData = storeWithD.find((item)=> item.store.storeCode ===storeCode)
+    let storeData = storwithD.find((item)=> `${item.store.storeCode}` ===`${storeCode}`)
 
     return storeData
 } catch (error) {

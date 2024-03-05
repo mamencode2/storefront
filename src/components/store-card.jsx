@@ -8,19 +8,27 @@ import { Button } from "@/components/ui/button"
 import { RightOutline } from "antd-mobile-icons";
 import { Button as AntButton, Image } from 'antd-mobile'
 import Link from 'next/link';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { getStoreData } from "@/actions/getProducts";
-export function StoreCard({product}) {
-  const [storeData, setStoreData]= useState({})
-  getStoreData(product.store_code    ).then((data)=>{
-    console.log(data)
-  })
+export function StoreCard({ product }) {
+  const [storeData, setStoreData] = useState({})
+  let sCode = product.store_code
+
+  useEffect(() => {
+    const sDRes = async () => {
+      let rd = await getStoreData(sCode)
+      console.log(rd)
+      setStoreData(rd.store)
+    }
+    sDRes()
+
+  }, [sCode])
   return (
     (<div className="max-w-[500px]  p-2"
 
       style={{
         width: '100%',
-        backgroundColor:"white",
+        backgroundColor: "white",
         marginTop: "8.3px",
       }}
     >
@@ -32,7 +40,7 @@ export function StoreCard({product}) {
       >
         <div className="flex justify-between items-center">
           <Image
-            src='https://img.ltwebstatic.com/images3_srm/2023/07/14/1689316995256c877762064041b0a7ccca2c7b9b2e.png'
+            src={storeData.logo}
             fit="cover"
             style={{
               width: "50px",
@@ -46,29 +54,37 @@ export function StoreCard({product}) {
                 fontSize: "14px"
               }}
 
-              className=" font-bold">SHEIN ICON</h1>
-            <p className="text-sm text-gray-500 truncate detail-title-text desc-new">SHEIN ICON ensures you never go unnoticed with...</p>
+              className=" font-bold">{storeData.title}</h1>
+            <div className="">
+            <p className="text-sm text-gray-500 truncate  desc-new"
+              style={{
+                maxWidth: "250px"
+              }}
+            >{storeData.descriptions}</p>
+            </div>
           </div>
         </div>
         <div className="">
-        <RightOutline fontSize={14} 
-        style={{
-          
-        }}
-        />
+          <RightOutline fontSize={14}
+            style={{
+
+            }}
+          />
         </div>
       </div>
       <div className="flex justify-between    px-3">
         <div className="text-center">
-          <div className="text-[12px] font-semibold">4.87</div>
+          <div className="text-[12px] font-semibold">{storeData.score}</div>
           <div className="text-[11px] text-gray-500">Rating</div>
         </div>
         <div className=" px-4">
-          <div className="text-[12px] font-semibold">17K</div>
+          <div className="text-[12px] font-semibold">
+            {storeData.quantity > 1000 ? `${Math.round(storeData.quantity / 1000)}K` : `${storeData.quantity}`}
+          </div>
           <div className="text-[11px] text-gray-500">Items</div>
         </div>
         <div className="text-center">
-          <div className="text-[12px] font-semibold">51K</div>
+          <div className="text-[12px] font-semibold">{storeData.followsCount}</div>
           <div className="text-[11px] text-gray-500">Followers</div>
         </div>
       </div>

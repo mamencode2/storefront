@@ -20,6 +20,7 @@ export function StoreCard() {
         paddingBottom:'16px'
       }}
       >
+        <div className="flex"> 
         <img
           alt="SHEIN ICON"
           className="h-10 w-10"
@@ -28,6 +29,7 @@ export function StoreCard() {
           style={{
             aspectRatio: "80/80",
             objectFit: "cover",
+            marginRight:"3px"
           }}
           width="50" />
         <div className="flex-1">
@@ -38,6 +40,7 @@ export function StoreCard() {
           
           className=" font-bold">SHEIN ICON</h1>
           <p className="text-sm text-gray-500 truncate detail-title-text desc-new">SHEIN ICON ensures you never go unnoticed with...</p>
+        </div>
         </div>
         <RightOutline fontSize={17}/>
       </div>

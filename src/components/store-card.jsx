@@ -6,6 +6,7 @@
  */
 import { Button } from "@/components/ui/button"
 import { RightOutline } from "antd-mobile-icons";
+import {Button as AntButton} from 'antd-mobile'
 export function StoreCard() {
   return (
     (<div className="max-w-[500px]  p-2"
@@ -59,12 +60,22 @@ export function StoreCard() {
         </div>
       </div>
       <div className="flex space-x-4 mt-4 mx-2">
-        <Button className="flex-1" variant="outline">
+        <AntButton shape="rounded" className="flex-1" variant="outline"
+        style={{
+          fontSize:"14px",
+          fontWeight:"600" 
+        }}
+        >
           + Follow
-        </Button>
-        <Button className="flex-1" variant="outline">
+        </AntButton>
+        <AntButton shape="rounded" className="flex-1" variant="outline"
+        style={{
+          fontSize:"14px",
+          fontWeight:"600" 
+        }}
+        >
           All Items
-        </Button>
+        </AntButton>
       </div>
     </div>)
   );

@@ -8,7 +8,7 @@ export async function GET(request){
     let limit = searchParams.get('limit') ||20
     let page = searchParams.get('page')
 
-    console.log(request_type,limit,page)
+    console.log(limit,page)
 try {
     let products = storwithD.map((sdata) => sdata.pItems).flat();
     //console.log(request)
@@ -19,11 +19,8 @@ try {
     const startItem = (requestedPage-1)*limit
     const endItem = Math.min(startItem+limit-1,totalItems-1)
     let responseProducts =products.slice(startItem,endItem)
-    return NextResponse.json({
-        msg:"ok",
-        status:200,
-        responseProducts
-    })
+    console.log(responseProducts.length)
+    return NextResponse.json(responseProducts)
 } catch (error) {
     return NextResponse.json({
         msg:"error",

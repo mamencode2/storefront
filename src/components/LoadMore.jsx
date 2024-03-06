@@ -6,7 +6,7 @@ import WishItem from "./WishItem";
 import Image from "next/image";
 
 async function fetchProductss(page,limit){
-    let response = await fetch(`/api/productsList/info?page=${page}&limit=${limit}`)
+    let response = await fetch(`/api/productsList/info?page=${page}&limit=${limit}`, { cache: 'force-cache' })
 
     let data = await response.json()
     return data
@@ -18,12 +18,15 @@ export default function LoadMore() {
 
   useEffect(()=>{
 if (inView) {
-    fetchProductss(page,20).then((res)=>{
-        setData([...data,...res])
+    fetchProductss(page,10).then((res)=>{
+      
+      setData((prevData)=> [...prevData,...res])
+        //setData([...data,...res])
         page++
     })
 }
-  },[inView,data])
+  },[inView,data,page])
+  console.log(data)
   return (
     <div>
       <Grid

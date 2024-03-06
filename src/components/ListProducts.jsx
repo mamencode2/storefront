@@ -5,6 +5,7 @@ import React,{useState,useEffect} from 'react'
 import { useInView } from 'react-intersection-observer';
 import WishItem from './WishItem';
 import { getProducts } from '@/actions/getProducts';
+import { useSearchParams } from 'next/navigation';
 const NUMBER_OF_PRODUCTS_TO_FETCH = 10;
 
 const InfiniteScroller = (props) => {
@@ -32,9 +33,12 @@ const InfiniteScroller = (props) => {
   return <>{children}</>;
 };
 export default function ListProducts({initialProducts}) {
+  const searchParams = useSearchParams()
     const [offset, setOffset] = useState(NUMBER_OF_PRODUCTS_TO_FETCH)
     const [products,setProducts]= useState(initialProducts)
     const { ref, inView } = useInView();
+    const requestType = searchParams.get('requestType')
+    const page= searchParams.get('page')
 const loadMoreProducts=async () =>{
     const apiProducts = await getProducts(offset,NUMBER_OF_PRODUCTS_TO_FETCH)
     setProducts([...products,...apiProducts])

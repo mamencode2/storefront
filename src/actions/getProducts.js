@@ -22,8 +22,8 @@ try {
 }
 }
 
-export const getProducts = async (offset, limit) => {
-    
+export const getProducts = async (offset, limit,requestType,page) => {
+    console.log(requestType,page)
     try {
         let products = storwithD.map((sdata) => sdata.pItems).flat()
         let responseProducts = products.slice(offset, offset+limit)
